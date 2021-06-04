@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="" class="has-navbar-fixed-top">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Structures | Fabricator</title>
+
+	<link rel="stylesheet" href="assets/fabricator/styles/f.css">
+
+	<!-- toolkit styles -->
+	<link rel="stylesheet" href="assets/toolkit/styles/toolkit.css">
+	<!-- /toolkit styles -->
+
+</head>
+<body>
+
+		<!-- fabricator icons -->
+		<svg style="display: none;">
+			<symbol id="f-icon-code" viewBox="0 0 512 512">
+				<path d="M377.3 121.3l-40.5 40.4 94.4 94.3-94.4 94.3 40.5 40.4L512 256zM134.7 121.3L0 256l134.7 134.7 40.5-40.4L80.8 256l94.4-94.3zM281.8 103.8zM230.183 408.16l-29.233-7.97 80.85-296.484 29.234 7.972z"/>
+			</symbol>
+			<symbol id="f-icon-notes" viewBox="0 0 512 512">
+				<path d="M443.8 0H68.2C30.6 0 0 30.5 0 68v264.2c0 16.6 8.9 29.5 25.9 37.5 15.3 7.2 33.1 8.4 40.1 8.5V512l201.6-134h176.1c37.6 0 68.2-30.3 68.2-67.8V68c.1-37.5-30.5-68-68.1-68zM114 438V330H68.2c-11.1 0-19.2-8.8-19.2-19.8V68c0-11 8.2-20 19.2-20h375.5c11.1 0 19.2 9 19.2 20v242.2c0 11-8.2 19.8-19.2 19.8H244.2L114 438z"/>
+			</symbol>
+			<symbol id="f-icon-labels" viewBox="0 0 512 512">
+				<path d="M304 280c0 13.2-10.8 24-24 24h-48c-13.2 0-24-10.8-24-24v-48c0-13.2 10.8-24 24-24h48c13.2 0 24 10.8 24 24v48zM464 280c0 13.2-10.8 24-24 24h-48c-13.2 0-24-10.8-24-24v-48c0-13.2 10.8-24 24-24h48c13.2 0 24 10.8 24 24v48zM144 280c0 13.2-10.8 24-24 24H72c-13.2 0-24-10.8-24-24v-48c0-13.2 10.8-24 24-24h48c13.2 0 24 10.8 24 24v48z"/>
+			</symbol>
+			<symbol id="f-icon-menu" viewBox="0 0 512 512">
+				<path d="M512 100c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24zM512 212c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24zM512 324c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24zM512 436c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24z"/>
+			</symbol>
+			<symbol id="f-icon-settings" viewBox="0 0 512 512">
+				<path d="M256 377.3c-67.5 0-121.6-53.9-121.6-121.3s54-121.3 121.6-121.3S377.6 188.6 377.6 256 323.5 377.3 256 377.3zm0-215.6c-52.7 0-94.6 41.8-94.6 94.3s41.9 94.3 94.6 94.3 94.6-41.8 94.6-94.3-41.9-94.3-94.6-94.3zM293.2 512h-72.9L200 450c-13.5-4-27-9.4-39.2-16.2l-59.4 29.6L50 412.3 79.7 353c-6.8-12.1-12.2-25.6-16.2-39.1L0 292.4v-72.8l62.1-20.2c4.1-13.5 9.5-26.9 16.2-39.1L48.6 101 100 49.9l59.4 29.6c12.2-6.7 25.7-12.1 39.2-16.2L220.2 0h72.9l20.3 62c13.5 4 27 9.4 39.2 16.2L412 48.5l51.3 51.2-29.7 59.3c6.8 12.1 12.2 25.6 16.2 39.1l62.1 20.2V291l-62.1 20.2c-4.1 13.5-9.5 26.9-16.2 39.1l29.7 59.3-51.3 51.2-59.4-29.6c-12.2 6.7-25.7 12.1-39.2 16.2L293.2 512zm-54.1-26.9h35.1l18.9-57.9 6.8-1.3c16.2-4 31.1-10.8 45.9-18.9l6.8-4 54 26.9 24.3-24.3-27-53.9 4.1-6.7c8.1-13.5 14.9-29.6 18.9-45.8l1.4-6.7 58.1-18.9v-35l-58.1-18.9-1.4-6.7c-4.1-16.2-10.8-31-18.9-45.8l-4.1-6.7 27-53.9-24.3-24.3-54 26.9-6.8-4c-14.8-8.2-29.7-14.9-45.9-19l-6.8-1.3L274.2 27h-35.1l-18.9 57.9-6.8 1.3c-16.2 4-31.1 10.8-45.9 18.9l-6.8 4-54-26.9-24.3 24.3 27 53.9-4.1 6.7c-8.1 13.5-14.9 29.6-18.9 45.8l-1.4 6.7-58 18.9v35l58.1 18.9 1.4 6.7c4.1 16.2 10.8 31 18.9 45.8l4.1 6.7-27 53.9 24.3 24.3 54-26.9 6.8 4c14.9 8.1 29.7 14.8 45.9 18.9l6.8 1.3 18.8 58z"/>
+			</symbol>
+		</svg>
+		<!-- /fabricator icons -->
+		<!-- fabricator menu -->
+		<div class="f-menu">
+		
+			<div class="f-controls">
+				<div class="f-control f-global-control" data-f-toggle-control="labels" title="Toggle Labels">
+					<svg>
+						<use xlink:href="#f-icon-labels" />
+					</svg>
+				</div>
+				<div class="f-control f-global-control" data-f-toggle-control="notes" title="Toggle Notes">
+					<svg>
+						<use xlink:href="#f-icon-notes" />
+					</svg>
+				</div>
+				<div class="f-control f-global-control" data-f-toggle-control="code" title="Toggle Code">
+					<svg>
+						<use xlink:href="#f-icon-code" />
+					</svg>
+				</div>
+			</div>
+		
+			<ul>
+				<li>
+					<a href="index.html" class="f-menu__heading">Overview</a>
+				</li>
+			</ul>
+		
+			<div class="f-search">
+				<input type="text" placeholder="Search"/>
+				<input type="button" name="delete" value="&#10060;" />
+			</div>
+			
+			<ul class="f-materials">
+				<li class="is-open">
+					<a href="basics.html" class="f-menu__heading">Basics</a>
+					<ul>
+								<li>
+								<a href="basics.html#button">Button</a>
+							</li>
+								<li class="f-menu__accordion-group">
+									<div class="control"></div>
+									<a class="f-menu__accordion-toggle" href="basics.html#forms">Forms</a>
+									<ul class="f-menu__accordion">
+											<li>
+												<a href="basics.html#forms.checkbox">Checkbox</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.file">File</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.input">Input</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.label">Label</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.radio">Radio</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.select">Select</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.textarea">Textarea</a>
+											</li>
+									</ul>
+							</li>
+								<li>
+								<a href="basics.html#icon">Icon</a>
+							</li>
+								<li>
+								<a href="basics.html#image">Image</a>
+							</li>
+								<li>
+								<a href="basics.html#progress">Progress</a>
+							</li>
+								<li>
+								<a href="basics.html#search-bar">Search Bar</a>
+							</li>
+								<li>
+								<a href="basics.html#table">Table</a>
+							</li>
+								<li>
+								<a href="basics.html#tag">Tag</a>
+							</li>
+								<li>
+								<a href="basics.html#title">Title</a>
+							</li>
+					</ul>
+				</li>
+				<li class="is-open">
+					<a href="components.html" class="f-menu__heading">Components</a>
+					<ul>
+								<li>
+								<a href="components.html#breadcrumb">Breadcrumb</a>
+							</li>
+								<li>
+								<a href="components.html#card">Card</a>
+							</li>
+								<li>
+								<a href="components.html#collapsible">Collapsible</a>
+							</li>
+								<li>
+								<a href="components.html#dropdown">Dropdown</a>
+							</li>
+								<li>
+								<a href="components.html#dynamic-template">Dynamic Template</a>
+							</li>
+								<li>
+								<a href="components.html#form-fields">Form Fields</a>
+							</li>
+								<li>
+								<a href="components.html#hero">Hero</a>
+							</li>
+								<li>
+								<a href="components.html#menu">Menu</a>
+							</li>
+								<li>
+								<a href="components.html#message">Message</a>
+							</li>
+								<li>
+								<a href="components.html#modal">Modal</a>
+							</li>
+								<li>
+								<a href="components.html#notification">Notification</a>
+							</li>
+								<li>
+								<a href="components.html#pagination">Pagination</a>
+							</li>
+								<li>
+								<a href="components.html#paragraph">Paragraph</a>
+							</li>
+								<li>
+								<a href="components.html#tabs">Tabs</a>
+							</li>
+					</ul>
+				</li>
+				<li class="is-open">
+					<a href="structures.html" class="f-menu__heading">Structures</a>
+					<ul>
+								<li>
+								<a href="structures.html#footer">Footer</a>
+							</li>
+								<li>
+								<a href="structures.html#form">Form</a>
+							</li>
+								<li>
+								<a href="structures.html#navigation">Navigation</a>
+							</li>
+					</ul>
+				</li>
+		
+				<li class="is-open">
+					<a href="pages.html" class="f-menu__heading">Pages</a>
+					<ul>
+						<li>
+							<a href="pages/home.html" target="_blank">Home</a>
+						</li>
+						<li>
+							<a href="pages/overview.html" target="_blank">Overview</a>
+						</li>
+						<li>
+							<a href="pages/product-detail.html" target="_blank">Product Detail</a>
+						</li>
+					</ul>
+				</li>
+		
+				<li class="is-open">
+					<a href="docs.html" class="f-menu__heading">Docs</a>
+					<ul>
+						<li>
+							<a href="docs.html#conventions">Conventions</a>
+						</li>
+					</ul>
+				</li>
+		
+			</ul>
+		
+		
+		</div>
+		<!-- /fabricator menu -->		<div class="f-container">
+			<div class="f-control-bar">
+				<div class="f-control f-menu-toggle">
+					<svg>
+						<use xlink:href="#f-icon-menu" />
+					</svg>
+				</div>
+			</div>
+
+	
+	
+<h1 data-f-toggle="labels" class="f-title is-1">Structures</h1>
+
+
+<div class="f-item-group" id="footer">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Footer</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>The footer is loaded on every page.</p>
+<p><em>Note: As footers are usually unique to the project, the actual components and styling being used are coded into the Structure rather than being pulled from a data file.<br>
+Still, the use of yml data is encouraged once the design is finalized.</em></p>
+<p><em><a href="https://bulma.io/documentation/layout/footer/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<footer class="footer">
+	<div class="container">
+		<div class="columns">
+			<div class="column contact-wrapper">
+				<h1 class="title is-5">Klantenservice</h1>
+				<p>Heb je onze hulp nodig? Onze serivce is geopend van ma t/m vr van 10.00 -17.00 uur.</p>
+				<span>020-2382160</span>
+				<p>Of neem contact op via onze mail</p>
+				<span>klantenservice@dille-kamille.com</span>
+			</div>
+			<div class="column social-wrapper">
+				<h1 class="title is-5">Volg ons ook via</h1>
+				<a href="https://www.instagram.com/dilleenkamille/"><img src="../assets/toolkit/images/temp/icon-insta.svg" alt="Instagram icon" class="social-icon" /></a>
+				<a href="https://nl.pinterest.com/dillekamille"><img src="../assets/toolkit/images/temp/icon-pinterest.svg" alt="Pinterest icon" class="social-icon" /></a>
+				<a href="https://www.facebook.com/DilleenKamille/"><img src="../assets/toolkit/images/temp/icon-facebook.svg" alt="Facebook icon" class="social-icon" /></a>
+				<a href="https://www.linkedin.com/company/dille-&-kamille/"><img src="../assets/toolkit/images/temp/icon-linkedin.svg" alt="Linkedin icon" class="social-icon" /></a>
+			</div>
+			<div class="column service-wrapper">
+				<h1 class="title is-5">Service</h1>
+				<ul>
+					<li><a href="#" class="service-link">Meest gestelde vragen</a></li>
+					<li><a href="#" class="service-link">Levering</a></li>
+					<li><a href="#" class="service-link">Retourneren en ruilen</a></li>
+					<li><a href="#" class="service-link">Saldo cadeaukaart</a></li>
+					<li><a href="#" class="service-link">Geschenk- en kerstpakketten</a></li>
+					<li><a href="#" class="service-link">Meer..</a></li>
+				</ul>
+			</div>
+			<div class="column about-wrapper">
+				<h1 class="title is-5">Over Dille & Kamille</h1>
+				<ul>
+					<li><a href="#" class="about-link">Oorsprong</a></li>
+					<li><a href="#" class="about-link">Bedrijfsgegevens</a></li>
+					<li><a href="#" class="about-link">Onze winkels</a></li>
+					<li><a href="#" class="about-link">Vacatures</a></li>
+					<li><a href="#" class="about-link">Pers</a></li>
+					<li><a href="#" class="about-link">Meer..</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="sustainable-web">
+			Wil jij ook een <b>duurzame website</b>? Klik dan <a target="_blank" href="https://sustainablewebpractices.netlify.app/" class="link">hier</a>!
+		</div>
+		<div class="footer-language footer-link-wrapper">
+			<a href="#" class="footer-link">Language: NL</a>
+		</div>
+		<div class="footer-footer">
+			<ul class="footer-link-wrapper">
+				<li><a href="#" class="footer-link">Privacyveklaring</a></li>
+				<li><a href="#" class="footer-link">Disclaimer</a></li>
+				<li><a href="#" class="footer-link">Copyright</a></li>
+				<li><a href="#" class="footer-link">Algemene voorwaarden</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;footer class&#x3D;&quot;footer&quot;&gt;
+	&lt;div class&#x3D;&quot;container&quot;&gt;
+		&lt;div class&#x3D;&quot;columns&quot;&gt;
+			&lt;div class&#x3D;&quot;column contact-wrapper&quot;&gt;
+				&lt;h1 class&#x3D;&quot;title is-5&quot;&gt;Klantenservice&lt;/h1&gt;
+				&lt;p&gt;Heb je onze hulp nodig? Onze serivce is geopend van ma t/m vr van 10.00 -17.00 uur.&lt;/p&gt;
+				&lt;span&gt;020-2382160&lt;/span&gt;
+				&lt;p&gt;Of neem contact op via onze mail&lt;/p&gt;
+				&lt;span&gt;klantenservice@dille-kamille.com&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class&#x3D;&quot;column social-wrapper&quot;&gt;
+				&lt;h1 class&#x3D;&quot;title is-5&quot;&gt;Volg ons ook via&lt;/h1&gt;
+				&lt;a href&#x3D;&quot;https://www.instagram.com/dilleenkamille/&quot;&gt;&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-insta.svg&quot; alt&#x3D;&quot;Instagram icon&quot; class&#x3D;&quot;social-icon&quot; /&gt;&lt;/a&gt;
+				&lt;a href&#x3D;&quot;https://nl.pinterest.com/dillekamille&quot;&gt;&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-pinterest.svg&quot; alt&#x3D;&quot;Pinterest icon&quot; class&#x3D;&quot;social-icon&quot; /&gt;&lt;/a&gt;
+				&lt;a href&#x3D;&quot;https://www.facebook.com/DilleenKamille/&quot;&gt;&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-facebook.svg&quot; alt&#x3D;&quot;Facebook icon&quot; class&#x3D;&quot;social-icon&quot; /&gt;&lt;/a&gt;
+				&lt;a href&#x3D;&quot;https://www.linkedin.com/company/dille-&amp;-kamille/&quot;&gt;&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-linkedin.svg&quot; alt&#x3D;&quot;Linkedin icon&quot; class&#x3D;&quot;social-icon&quot; /&gt;&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class&#x3D;&quot;column service-wrapper&quot;&gt;
+				&lt;h1 class&#x3D;&quot;title is-5&quot;&gt;Service&lt;/h1&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;service-link&quot;&gt;Meest gestelde vragen&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;service-link&quot;&gt;Levering&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;service-link&quot;&gt;Retourneren en ruilen&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;service-link&quot;&gt;Saldo cadeaukaart&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;service-link&quot;&gt;Geschenk- en kerstpakketten&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;service-link&quot;&gt;Meer..&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;div class&#x3D;&quot;column about-wrapper&quot;&gt;
+				&lt;h1 class&#x3D;&quot;title is-5&quot;&gt;Over Dille &amp; Kamille&lt;/h1&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;about-link&quot;&gt;Oorsprong&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;about-link&quot;&gt;Bedrijfsgegevens&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;about-link&quot;&gt;Onze winkels&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;about-link&quot;&gt;Vacatures&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;about-link&quot;&gt;Pers&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;about-link&quot;&gt;Meer..&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class&#x3D;&quot;sustainable-web&quot;&gt;
+			Wil jij ook een &lt;b&gt;duurzame website&lt;/b&gt;? Klik dan &lt;a target&#x3D;&quot;_blank&quot; href&#x3D;&quot;https://sustainablewebpractices.netlify.app/&quot; class&#x3D;&quot;link&quot;&gt;hier&lt;/a&gt;!
+		&lt;/div&gt;
+		&lt;div class&#x3D;&quot;footer-language footer-link-wrapper&quot;&gt;
+			&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;footer-link&quot;&gt;Language: NL&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class&#x3D;&quot;footer-footer&quot;&gt;
+			&lt;ul class&#x3D;&quot;footer-link-wrapper&quot;&gt;
+				&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;footer-link&quot;&gt;Privacyveklaring&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;footer-link&quot;&gt;Disclaimer&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;footer-link&quot;&gt;Copyright&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;footer-link&quot;&gt;Algemene voorwaarden&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="form">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Form</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>An example form using several <a href="components.html#form-fields">Form Components</a> and <a href="basics.html#forms">Form Basics</a>. Data is being pulled from <code>src/data/forms-feedback.yml</code></p>
+
+</div>
+<div class="f-item-preview">
+	<form action="">
+	<div class="field  ">
+		<label class="label " for="gender">Gender</label>
+		<div class="control ">
+			<label class="radio " id="gender-0">
+				<input type="radio" name="gender" value="mr"> Mr
+			</label>
+			<label class="radio " id="gender-1">
+				<input type="radio" name="gender" value="mrs"> Mrs
+			</label>
+		</div>
+	</div>
+
+	<div class="field  ">
+		<label class="label " for="firstname">Firstname</label>
+		<div class="control ">
+			<input type="text" id="firstname" class="input  " placeholder="Type here" value="" />
+		</div>
+	</div>
+
+	<div class="field  ">
+		<label class="label " for="lastname">Last name</label>
+		<div class="control ">
+			<input type="text" id="lastname" class="input  " placeholder="Type here" value="" />
+		</div>
+	</div>
+
+	<div class="field  ">
+		<label class="label " for="email">E-mail address</label>
+		<div class="control ">
+			<input type="email" id="email" class="input  " placeholder="test@example.com" value="" />
+		</div>
+	</div>
+
+	<div class="field  ">
+		<label class="label " for="country">Country</label>
+		<div class="control ">
+			<div class="select  ">
+				<select id="country">
+
+					<option value="Netherlands">Netherlands</option>
+					<option value="United Kingdom">United Kingdom</option>
+					<option value="Germany">Germany</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="field  ">
+		<label class="label " for="sample-text">Message</label>
+		<div class="control ">
+			<textarea class="textarea " id="sample-text" placeholder="Please enter some text" rows="6"></textarea>
+		</div>
+		<p class="help ">max 250 characters</p>
+	</div>
+
+	<div class="field  ">
+		<div class="control ">
+			<label class="checkbox " id="terms">
+				<input type="checkbox" checked />
+				I have read the <a href="">terms and conditions</a>
+			</label>
+		</div>
+		<p class="help ">Required</p>
+	</div>
+
+	<div class="buttons">
+		<button type="submit" class="button is-link is-outlined">
+			Submit
+
+		</button>
+		<a href="#" class="button ">
+			Cancel
+
+		</a>
+	</div>
+</form>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;form action&#x3D;&quot;&quot;&gt;
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;gender&quot;&gt;Gender&lt;/label&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;label class&#x3D;&quot;radio &quot; id&#x3D;&quot;gender-0&quot;&gt;
+				&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;gender&quot; value&#x3D;&quot;mr&quot;&gt; Mr
+			&lt;/label&gt;
+			&lt;label class&#x3D;&quot;radio &quot; id&#x3D;&quot;gender-1&quot;&gt;
+				&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;gender&quot; value&#x3D;&quot;mrs&quot;&gt; Mrs
+			&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;firstname&quot;&gt;Firstname&lt;/label&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;firstname&quot; class&#x3D;&quot;input  &quot; placeholder&#x3D;&quot;Type here&quot; value&#x3D;&quot;&quot; /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;lastname&quot;&gt;Last name&lt;/label&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;lastname&quot; class&#x3D;&quot;input  &quot; placeholder&#x3D;&quot;Type here&quot; value&#x3D;&quot;&quot; /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;email&quot;&gt;E-mail address&lt;/label&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;input type&#x3D;&quot;email&quot; id&#x3D;&quot;email&quot; class&#x3D;&quot;input  &quot; placeholder&#x3D;&quot;test@example.com&quot; value&#x3D;&quot;&quot; /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;country&quot;&gt;Country&lt;/label&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;div class&#x3D;&quot;select  &quot;&gt;
+				&lt;select id&#x3D;&quot;country&quot;&gt;
+
+					&lt;option value&#x3D;&quot;Netherlands&quot;&gt;Netherlands&lt;/option&gt;
+					&lt;option value&#x3D;&quot;United Kingdom&quot;&gt;United Kingdom&lt;/option&gt;
+					&lt;option value&#x3D;&quot;Germany&quot;&gt;Germany&lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;sample-text&quot;&gt;Message&lt;/label&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;textarea class&#x3D;&quot;textarea &quot; id&#x3D;&quot;sample-text&quot; placeholder&#x3D;&quot;Please enter some text&quot; rows&#x3D;&quot;6&quot;&gt;&lt;/textarea&gt;
+		&lt;/div&gt;
+		&lt;p class&#x3D;&quot;help &quot;&gt;max 250 characters&lt;/p&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;field  &quot;&gt;
+		&lt;div class&#x3D;&quot;control &quot;&gt;
+			&lt;label class&#x3D;&quot;checkbox &quot; id&#x3D;&quot;terms&quot;&gt;
+				&lt;input type&#x3D;&quot;checkbox&quot; checked /&gt;
+				I have read the &lt;a href&#x3D;&quot;&quot;&gt;terms and conditions&lt;/a&gt;
+			&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;p class&#x3D;&quot;help &quot;&gt;Required&lt;/p&gt;
+	&lt;/div&gt;
+
+	&lt;div class&#x3D;&quot;buttons&quot;&gt;
+		&lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;button is-link is-outlined&quot;&gt;
+			Submit
+
+		&lt;/button&gt;
+		&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;button &quot;&gt;
+			Cancel
+
+		&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="navigation">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Navigation</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>The sitewide navigation, composed of the <a href="https://bulma.io/documentation/components/navbar/">Navbar Component (ext)</a> and <a href="basics.html#button">Button Basic</a>.<br>
+Mobile view adds a hamburger menu. The Order and Seach buttons disappear on smaller screens as their journeys are not mobile safe.</p>
+<p><strong>Options as passed by the data:</strong></p>
+<ul>
+<li><code>id</code> the id used for the hamburger menu functionality. Defaults to <code>site-menu</code></li>
+<li><code>classes</code> a list of classnames for the navbar container</li>
+<li><code>is-fixed</code> setting this to <code>1</code> stickies the navigation bar to the top of the page. This also adds a <code>.has-navbar-fixed-top</code> to the <code>html</code>. Default is <code>0</code></li>
+<li><code>is-centered</code> setting this to <code>1</code> places all menu items in the center of the available width. Default is <code>0</code></li>
+<li><code>items</code> a list of  menu items
+<ul>
+<li><code>text</code> the text of the item</li>
+<li><code>subitems</code> a list of submenu items
+<ul>
+<li><code>text</code> the text of the submenu item</li>
+<li><code>is-active</code> setting this to <code>1</code> adds a visual indicator to the item. Default is <code>0</code></li>
+<li><code>is-divider</code> setting this to <code>1</code> omits the <code>text</code> and adds a horizontal divider instead</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/components/navbar/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<nav class="navbar is-fixed-top " role="navigation" aria-label="main navigation">
+	<div class="navbar-container">
+		<div class="navbar-brand">
+			<a role="button" data-target="site-menu" class="navbar-burger js-mobile-menu" aria-label="menu" aria-expanded="false">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+			<a href="home.html" class="navbar-item"><img src="../assets/toolkit/images/temp/logo-d&k.svg" alt="Dille & Kamille's logo" /></a href="/home.html">
+		</div>
+		<div id="site-menu" class="navbar-menu">
+			<div class="navbar-start ">
+				<a href="" class="navbar-item">Nieuw</a>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Wonen</a>
+						<button class="navbar-link is-hidden-desktop">Wonen</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Bloempotten &amp; vazen</a>
+						<a href="/pages/overview.html" class="navbar-item">Boeken</a>
+						<a href="/pages/overview.html" class="navbar-item">Dienbladen &amp; bestekbakken</a>
+						<a href="/pages/overview.html" class="navbar-item">Emmers, teilen &amp; vuilnisemmers</a>
+						<a href="/pages/overview.html" class="navbar-item">Geur in huis</a>
+						<a href="/pages/overview.html" class="navbar-item">Kaarsen</a>
+						<a href="/pages/overview.html" class="navbar-item">Kandelaars &amp; waxinelichthouders</a>
+						<a href="/pages/overview.html" class="navbar-item">Manden</a>
+						<a href="/pages/overview.html" class="navbar-item">Posters &amp; (foto)lijsten</a>
+						<a href="/pages/overview.html" class="navbar-item">Schoonmaakmiddelen</a>
+						<a href="/pages/overview.html" class="navbar-item">Tassen</a>
+						<a href="/pages/overview.html" class="navbar-item">Woontextiel</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Koken</a>
+						<button class="navbar-link is-hidden-desktop">Koken</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Bakspullen</a>
+						<a href="/pages/overview.html" class="navbar-item">Drank accessoires</a>
+						<a href="/pages/overview.html" class="navbar-item">Fermentatie producten</a>
+						<a href="/pages/overview.html" class="navbar-item">Internationaal koken</a>
+						<a href="/pages/overview.html" class="navbar-item">Keukengerei</a>
+						<a href="/pages/overview.html" class="navbar-item">Keukentextiel</a>
+						<a href="/pages/overview.html" class="navbar-item">Koken, grillen &amp; stomen</a>
+						<a href="/pages/overview.html" class="navbar-item">Kookboeken</a>
+						<a href="/pages/overview.html" class="navbar-item">Opbergen &amp; bewaren</a>
+						<a href="/pages/overview.html" class="navbar-item">Ovenschalen</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Aan tafel</a>
+						<button class="navbar-link is-hidden-desktop">Aan tafel</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Bestek</a>
+						<a href="/pages/overview.html" class="navbar-item">Glaswerk</a>
+						<a href="/pages/overview.html" class="navbar-item">Servetten &amp; servetringen</a>
+						<a href="/pages/overview.html" class="navbar-item">Servies</a>
+						<a href="/pages/overview.html" class="navbar-item">Tafeldekken</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Eten &amp; drinken</a>
+						<button class="navbar-link is-hidden-desktop">Eten &amp; drinken</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Bakingrediënten</a>
+						<a href="/pages/overview.html" class="navbar-item">Drank &amp; delicatessen</a>
+						<a href="/pages/overview.html" class="navbar-item">Groentekiemen</a>
+						<a href="/pages/overview.html" class="navbar-item">Jam, stroop &amp; honing</a>
+						<a href="/pages/overview.html" class="navbar-item">Koffie</a>
+						<a href="/pages/overview.html" class="navbar-item">Kruiden &amp; specerijen</a>
+						<a href="/pages/overview.html" class="navbar-item">Limonades &amp; siropen</a>
+						<a href="/pages/overview.html" class="navbar-item">Olie, azijn &amp; smaakmakers</a>
+						<a href="/pages/overview.html" class="navbar-item">Pasta &amp; rijst</a>
+						<a href="/pages/overview.html" class="navbar-item">Snoep &amp; chocola</a>
+						<a href="/pages/overview.html" class="navbar-item">Thee</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Kind</a>
+						<button class="navbar-link is-hidden-desktop">Kind</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Kinderboeken</a>
+						<a href="/pages/overview.html" class="navbar-item">Kinderfeestje</a>
+						<a href="/pages/overview.html" class="navbar-item">Kinderkamer</a>
+						<a href="/pages/overview.html" class="navbar-item">Kinderkeuken</a>
+						<a href="/pages/overview.html" class="navbar-item">Knutselen &amp; tekenen</a>
+						<a href="/pages/overview.html" class="navbar-item">Speelgoed van 0 tot 3 jaar</a>
+						<a href="/pages/overview.html" class="navbar-item">Speelgoed vanaf 3 jaar</a>
+						<a href="/pages/overview.html" class="navbar-item">Poppen &amp; knuffels</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Bad</a>
+						<button class="navbar-link is-hidden-desktop">Bad</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Badkamer accessoires</a>
+						<a href="/pages/overview.html" class="navbar-item">Badtextiel</a>
+						<a href="/pages/overview.html" class="navbar-item">Gezichts- en lichaamsverzorging</a>
+						<a href="/pages/overview.html" class="navbar-item">Zeep</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Schrijfwaren</a>
+						<button class="navbar-link is-hidden-desktop">Schrijfwaren</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Archiveren &amp; organiseren</a>
+						<a href="/pages/overview.html" class="navbar-item">Doe-het-zelf</a>
+						<a href="/pages/overview.html" class="navbar-item">Inpakken &amp; versieren</a>
+						<a href="/pages/overview.html" class="navbar-item">Kaarten</a>
+						<a href="/pages/overview.html" class="navbar-item">Knijpertjes, clips &amp; magneetjes</a>
+						<a href="/pages/overview.html" class="navbar-item">Schriftjes &amp; schetsboeken</a>
+						<a href="/pages/overview.html" class="navbar-item">Schrijven &amp; tekenen</a>
+						<a href="/pages/overview.html" class="navbar-item">Stempels</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Tuin</a>
+						<button class="navbar-link is-hidden-desktop">Tuin</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Aan tafel &amp; tuininrichting</a>
+						<a href="/pages/overview.html" class="navbar-item">Bloempotten</a>
+						<a href="/pages/overview.html" class="navbar-item">Dieren in de tuin</a>
+						<a href="/pages/overview.html" class="navbar-item">Natuur- &amp; tuinboeken</a>
+						<a href="/pages/overview.html" class="navbar-item">Picknick</a>
+						<a href="/pages/overview.html" class="navbar-item">Tuinieren</a>
+						<a href="/pages/overview.html" class="navbar-item">Tuintextiel</a>
+						<a href="/pages/overview.html" class="navbar-item">Tuin top 20</a>
+						<a href="/pages/overview.html" class="navbar-item">Zaaien</a>
+					</div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<div class="navbar-item-container">
+						<a href="/pages/overview.html" class="navbar-link is-hidden-touch">Cadeau</a>
+						<button class="navbar-link is-hidden-desktop">Cadeau</button>
+						<figure class="image is-16x16 arrow-icon is-hidden-desktop">
+							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg" />
+						</figure>
+					</div>
+					<div class="navbar-dropdown">
+						<a href="/pages/overview.html" class="navbar-item">Aardigheidjes tot €10</a>
+						<a href="/pages/overview.html" class="navbar-item">Cadeaukaarten</a>
+						<a href="/pages/overview.html" class="navbar-item">Cadeaupakketten</a>
+						<a href="/pages/overview.html" class="navbar-item">Cadeau top 20</a>
+						<a href="/pages/overview.html" class="navbar-item">Inpakken &amp; kaartjes</a>
+						<a href="/pages/overview.html" class="navbar-item">Kraamcadeaus</a>
+						<a href="/pages/overview.html" class="navbar-item">Verwencadeautjes</a>
+						<a href="/pages/overview.html" class="navbar-item">Voor de creatieveling</a>
+						<a href="/pages/overview.html" class="navbar-item">Voor foodies en thuiskoks</a>
+						<a href="/pages/overview.html" class="navbar-item">Voor groenliefhebbers</a>
+						<a href="/pages/overview.html" class="navbar-item">Voor haar</a>
+						<a href="/pages/overview.html" class="navbar-item">Voor hem</a>
+						<a href="/pages/overview.html" class="navbar-item">Voor woonliefhebbers</a>
+					</div>
+				</div>
+				<a href="" class="navbar-item">Stippenkorting!</a>
+			</div>
+			<div class="navbar-start-end">
+				<div class="navbar-item">
+					<a class="navbar-link is-hidden-touch">Mijn favorieten</a>
+					<button class="navbar-link is-hidden-desktop">Mijn favorieten</button>
+				</div>
+				<div class="navbar-item">
+					<a class="navbar-link is-hidden-touch">Inspiratie</a>
+					<button class="navbar-link is-hidden-desktop">Inspiratie</button>
+				</div>
+				<div class="navbar-item">
+					<a class="navbar-link is-hidden-touch">Mijn account</a>
+					<button class="navbar-link is-hidden-desktop">Mijn account</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="navbar-end">
+			<div class="navbar-item">
+				<a class="button sustainable-btn">
+
+					<img class="btn-icon" src="../assets/toolkit/images/temp/logo-sustainable-website.svg" alt="Sustainable website logo" />
+				</a>
+			</div>
+			<div class="navbar-item">
+				<a class="button ">
+
+					<img class="btn-icon" src="../assets/toolkit/images/temp/icon-shopping-cart-counter.svg" alt="" />
+				</a>
+			</div>
+			<div class="navbar-item has-dropdown is-hoverable is-hidden-touch">
+				<button class="button">
+					<img class="btn-icon" src="../assets/toolkit/images/temp/icon-account.svg" alt="My account icoon">
+				</button>
+				<div class="navbar-dropdown is-right">
+					<a href="" class="navbar-item">Profiel</a>
+					<a href="" class="navbar-item">Bestellingen</a>
+					<a href="" class="navbar-item">Mijn favorieten</a>
+					<a href="" class="navbar-item">Account instellingen</a>
+					<a href="" class="navbar-item">Uitloggen</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+</div>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;nav class&#x3D;&quot;navbar is-fixed-top &quot; role&#x3D;&quot;navigation&quot; aria-label&#x3D;&quot;main navigation&quot;&gt;
+	&lt;div class&#x3D;&quot;navbar-container&quot;&gt;
+		&lt;div class&#x3D;&quot;navbar-brand&quot;&gt;
+			&lt;a role&#x3D;&quot;button&quot; data-target&#x3D;&quot;site-menu&quot; class&#x3D;&quot;navbar-burger js-mobile-menu&quot; aria-label&#x3D;&quot;menu&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+				&lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+				&lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+				&lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+			&lt;/a&gt;
+			&lt;a href&#x3D;&quot;home.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/logo-d&amp;k.svg&quot; alt&#x3D;&quot;Dille &amp; Kamille&#x27;s logo&quot; /&gt;&lt;/a href&#x3D;&quot;/home.html&quot;&gt;
+		&lt;/div&gt;
+		&lt;div id&#x3D;&quot;site-menu&quot; class&#x3D;&quot;navbar-menu&quot;&gt;
+			&lt;div class&#x3D;&quot;navbar-start &quot;&gt;
+				&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Nieuw&lt;/a&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Wonen&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Wonen&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Bloempotten &amp;amp; vazen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Boeken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Dienbladen &amp;amp; bestekbakken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Emmers, teilen &amp;amp; vuilnisemmers&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Geur in huis&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kaarsen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kandelaars &amp;amp; waxinelichthouders&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Manden&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Posters &amp;amp; (foto)lijsten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Schoonmaakmiddelen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Tassen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Woontextiel&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Koken&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Koken&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Bakspullen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Drank accessoires&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Fermentatie producten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Internationaal koken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Keukengerei&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Keukentextiel&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Koken, grillen &amp;amp; stomen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kookboeken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Opbergen &amp;amp; bewaren&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Ovenschalen&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Aan tafel&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Aan tafel&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Bestek&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Glaswerk&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Servetten &amp;amp; servetringen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Servies&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Tafeldekken&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Eten &amp;amp; drinken&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Eten &amp;amp; drinken&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Bakingrediënten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Drank &amp;amp; delicatessen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Groentekiemen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Jam, stroop &amp;amp; honing&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Koffie&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kruiden &amp;amp; specerijen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Limonades &amp;amp; siropen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Olie, azijn &amp;amp; smaakmakers&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Pasta &amp;amp; rijst&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Snoep &amp;amp; chocola&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Thee&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Kind&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Kind&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kinderboeken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kinderfeestje&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kinderkamer&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kinderkeuken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Knutselen &amp;amp; tekenen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Speelgoed van 0 tot 3 jaar&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Speelgoed vanaf 3 jaar&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Poppen &amp;amp; knuffels&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Bad&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Bad&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Badkamer accessoires&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Badtextiel&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Gezichts- en lichaamsverzorging&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Zeep&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Schrijfwaren&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Schrijfwaren&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Archiveren &amp;amp; organiseren&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Doe-het-zelf&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Inpakken &amp;amp; versieren&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kaarten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Knijpertjes, clips &amp;amp; magneetjes&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Schriftjes &amp;amp; schetsboeken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Schrijven &amp;amp; tekenen&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Stempels&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Tuin&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Tuin&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Aan tafel &amp;amp; tuininrichting&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Bloempotten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Dieren in de tuin&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Natuur- &amp;amp; tuinboeken&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Picknick&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Tuinieren&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Tuintextiel&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Tuin top 20&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Zaaien&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+					&lt;div class&#x3D;&quot;navbar-item-container&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Cadeau&lt;/a&gt;
+						&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Cadeau&lt;/button&gt;
+						&lt;figure class&#x3D;&quot;image is-16x16 arrow-icon is-hidden-desktop&quot;&gt;
+							&lt;img src&#x3D;&quot;../assets/toolkit/images/temp/icon-arrow-black.svg&quot; /&gt;
+						&lt;/figure&gt;
+					&lt;/div&gt;
+					&lt;div class&#x3D;&quot;navbar-dropdown&quot;&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Aardigheidjes tot €10&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Cadeaukaarten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Cadeaupakketten&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Cadeau top 20&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Inpakken &amp;amp; kaartjes&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Kraamcadeaus&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Verwencadeautjes&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Voor de creatieveling&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Voor foodies en thuiskoks&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Voor groenliefhebbers&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Voor haar&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Voor hem&lt;/a&gt;
+						&lt;a href&#x3D;&quot;/pages/overview.html&quot; class&#x3D;&quot;navbar-item&quot;&gt;Voor woonliefhebbers&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Stippenkorting!&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class&#x3D;&quot;navbar-start-end&quot;&gt;
+				&lt;div class&#x3D;&quot;navbar-item&quot;&gt;
+					&lt;a class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Mijn favorieten&lt;/a&gt;
+					&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Mijn favorieten&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item&quot;&gt;
+					&lt;a class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Inspiratie&lt;/a&gt;
+					&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Inspiratie&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class&#x3D;&quot;navbar-item&quot;&gt;
+					&lt;a class&#x3D;&quot;navbar-link is-hidden-touch&quot;&gt;Mijn account&lt;/a&gt;
+					&lt;button class&#x3D;&quot;navbar-link is-hidden-desktop&quot;&gt;Mijn account&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class&#x3D;&quot;navbar-end&quot;&gt;
+			&lt;div class&#x3D;&quot;navbar-item&quot;&gt;
+				&lt;a class&#x3D;&quot;button sustainable-btn&quot;&gt;
+
+					&lt;img class&#x3D;&quot;btn-icon&quot; src&#x3D;&quot;../assets/toolkit/images/temp/logo-sustainable-website.svg&quot; alt&#x3D;&quot;Sustainable website logo&quot; /&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class&#x3D;&quot;navbar-item&quot;&gt;
+				&lt;a class&#x3D;&quot;button &quot;&gt;
+
+					&lt;img class&#x3D;&quot;btn-icon&quot; src&#x3D;&quot;../assets/toolkit/images/temp/icon-shopping-cart-counter.svg&quot; alt&#x3D;&quot;&quot; /&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable is-hidden-touch&quot;&gt;
+				&lt;button class&#x3D;&quot;button&quot;&gt;
+					&lt;img class&#x3D;&quot;btn-icon&quot; src&#x3D;&quot;../assets/toolkit/images/temp/icon-account.svg&quot; alt&#x3D;&quot;My account icoon&quot;&gt;
+				&lt;/button&gt;
+				&lt;div class&#x3D;&quot;navbar-dropdown is-right&quot;&gt;
+					&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Profiel&lt;/a&gt;
+					&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Bestellingen&lt;/a&gt;
+					&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Mijn favorieten&lt;/a&gt;
+					&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Account instellingen&lt;/a&gt;
+					&lt;a href&#x3D;&quot;&quot; class&#x3D;&quot;navbar-item&quot;&gt;Uitloggen&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+is-fixed: 1
+is-centered: 0
+items:
+  - text: Nieuw
+  - text: Wonen
+    subitems:
+      - text: Bloempotten &amp; vazen
+      - text: Boeken
+      - text: Dienbladen &amp; bestekbakken
+      - text: &#x27;Emmers, teilen &amp; vuilnisemmers&#x27;
+      - text: Geur in huis
+      - text: Kaarsen
+      - text: Kandelaars &amp; waxinelichthouders
+      - text: Manden
+      - text: Posters &amp; (foto)lijsten
+      - text: Schoonmaakmiddelen
+      - text: Tassen
+      - text: Woontextiel
+  - text: Koken
+    subitems:
+      - text: Bakspullen
+      - text: Drank accessoires
+      - text: Fermentatie producten
+      - text: Internationaal koken
+      - text: Keukengerei
+      - text: Keukentextiel
+      - text: &#x27;Koken, grillen &amp; stomen&#x27;
+      - text: Kookboeken
+      - text: Opbergen &amp; bewaren
+      - text: Ovenschalen
+  - text: Aan tafel
+    subitems:
+      - text: Bestek
+      - text: Glaswerk
+      - text: Servetten &amp; servetringen
+      - text: Servies
+      - text: Tafeldekken
+  - text: Eten &amp; drinken
+    subitems:
+      - text: Bakingrediënten
+      - text: Drank &amp; delicatessen
+      - text: Groentekiemen
+      - text: &#x27;Jam, stroop &amp; honing&#x27;
+      - text: Koffie
+      - text: Kruiden &amp; specerijen
+      - text: Limonades &amp; siropen
+      - text: &#x27;Olie, azijn &amp; smaakmakers&#x27;
+      - text: Pasta &amp; rijst
+      - text: Snoep &amp; chocola
+      - text: Thee
+  - text: Kind
+    subitems:
+      - text: Kinderboeken
+      - text: Kinderfeestje
+      - text: Kinderkamer
+      - text: Kinderkeuken
+      - text: Knutselen &amp; tekenen
+      - text: Speelgoed van 0 tot 3 jaar
+      - text: Speelgoed vanaf 3 jaar
+      - text: Poppen &amp; knuffels
+  - text: Bad
+    subitems:
+      - text: Badkamer accessoires
+      - text: Badtextiel
+      - text: Gezichts- en lichaamsverzorging
+      - text: Zeep
+  - text: Schrijfwaren
+    subitems:
+      - text: Archiveren &amp; organiseren
+      - text: Doe-het-zelf
+      - text: Inpakken &amp; versieren
+      - text: Kaarten
+      - text: &#x27;Knijpertjes, clips &amp; magneetjes&#x27;
+      - text: Schriftjes &amp; schetsboeken
+      - text: Schrijven &amp; tekenen
+      - text: Stempels
+  - text: Tuin
+    subitems:
+      - text: Aan tafel &amp; tuininrichting
+      - text: Bloempotten
+      - text: Dieren in de tuin
+      - text: Natuur- &amp; tuinboeken
+      - text: Picknick
+      - text: Tuinieren
+      - text: Tuintextiel
+      - text: Tuin top 20
+      - text: Zaaien
+  - text: Cadeau
+    subitems:
+      - text: Aardigheidjes tot €10
+      - text: Cadeaukaarten
+      - text: Cadeaupakketten
+      - text: Cadeau top 20
+      - text: Inpakken &amp; kaartjes
+      - text: Kraamcadeaus
+      - text: Verwencadeautjes
+      - text: Voor de creatieveling
+      - text: Voor foodies en thuiskoks
+      - text: Voor groenliefhebbers
+      - text: Voor haar
+      - text: Voor hem
+      - text: Voor woonliefhebbers
+  - text: Stippenkorting!
+end-items:
+  - text: Mijn favorieten
+  - text: Inspiratie
+  - text: Mijn account
+metamenu:
+  - button:
+      classes: sustainable-btn
+      text: null
+      icon: temp/logo-sustainable-website.svg
+      icon-description: Sustainable website logo
+  - button:
+      classes: null
+      text: null
+      icon: temp/icon-shopping-cart-counter.svg
+</code></pre>
+</div>
+
+
+</div>
+
+
+	
+
+
+		</div>
+	<script src="assets/fabricator/scripts/f.js"></script>
+
+	<!-- toolkit scripts -->
+	<script src="assets/toolkit/scripts/toolkit.js"></script>
+	<!-- /toolkit scripts -->
+
+</body>
+</html>

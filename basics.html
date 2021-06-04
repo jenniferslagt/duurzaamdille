@@ -1,0 +1,1372 @@
+<!doctype html>
+<html lang="" class="has-navbar-fixed-top">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Basics | Fabricator</title>
+
+	<link rel="stylesheet" href="assets/fabricator/styles/f.css">
+
+	<!-- toolkit styles -->
+	<link rel="stylesheet" href="assets/toolkit/styles/toolkit.css">
+	<!-- /toolkit styles -->
+
+</head>
+<body>
+
+		<!-- fabricator icons -->
+		<svg style="display: none;">
+			<symbol id="f-icon-code" viewBox="0 0 512 512">
+				<path d="M377.3 121.3l-40.5 40.4 94.4 94.3-94.4 94.3 40.5 40.4L512 256zM134.7 121.3L0 256l134.7 134.7 40.5-40.4L80.8 256l94.4-94.3zM281.8 103.8zM230.183 408.16l-29.233-7.97 80.85-296.484 29.234 7.972z"/>
+			</symbol>
+			<symbol id="f-icon-notes" viewBox="0 0 512 512">
+				<path d="M443.8 0H68.2C30.6 0 0 30.5 0 68v264.2c0 16.6 8.9 29.5 25.9 37.5 15.3 7.2 33.1 8.4 40.1 8.5V512l201.6-134h176.1c37.6 0 68.2-30.3 68.2-67.8V68c.1-37.5-30.5-68-68.1-68zM114 438V330H68.2c-11.1 0-19.2-8.8-19.2-19.8V68c0-11 8.2-20 19.2-20h375.5c11.1 0 19.2 9 19.2 20v242.2c0 11-8.2 19.8-19.2 19.8H244.2L114 438z"/>
+			</symbol>
+			<symbol id="f-icon-labels" viewBox="0 0 512 512">
+				<path d="M304 280c0 13.2-10.8 24-24 24h-48c-13.2 0-24-10.8-24-24v-48c0-13.2 10.8-24 24-24h48c13.2 0 24 10.8 24 24v48zM464 280c0 13.2-10.8 24-24 24h-48c-13.2 0-24-10.8-24-24v-48c0-13.2 10.8-24 24-24h48c13.2 0 24 10.8 24 24v48zM144 280c0 13.2-10.8 24-24 24H72c-13.2 0-24-10.8-24-24v-48c0-13.2 10.8-24 24-24h48c13.2 0 24 10.8 24 24v48z"/>
+			</symbol>
+			<symbol id="f-icon-menu" viewBox="0 0 512 512">
+				<path d="M512 100c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24zM512 212c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24zM512 324c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24zM512 436c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h488c6.6 0 12 5.4 12 12v24z"/>
+			</symbol>
+			<symbol id="f-icon-settings" viewBox="0 0 512 512">
+				<path d="M256 377.3c-67.5 0-121.6-53.9-121.6-121.3s54-121.3 121.6-121.3S377.6 188.6 377.6 256 323.5 377.3 256 377.3zm0-215.6c-52.7 0-94.6 41.8-94.6 94.3s41.9 94.3 94.6 94.3 94.6-41.8 94.6-94.3-41.9-94.3-94.6-94.3zM293.2 512h-72.9L200 450c-13.5-4-27-9.4-39.2-16.2l-59.4 29.6L50 412.3 79.7 353c-6.8-12.1-12.2-25.6-16.2-39.1L0 292.4v-72.8l62.1-20.2c4.1-13.5 9.5-26.9 16.2-39.1L48.6 101 100 49.9l59.4 29.6c12.2-6.7 25.7-12.1 39.2-16.2L220.2 0h72.9l20.3 62c13.5 4 27 9.4 39.2 16.2L412 48.5l51.3 51.2-29.7 59.3c6.8 12.1 12.2 25.6 16.2 39.1l62.1 20.2V291l-62.1 20.2c-4.1 13.5-9.5 26.9-16.2 39.1l29.7 59.3-51.3 51.2-59.4-29.6c-12.2 6.7-25.7 12.1-39.2 16.2L293.2 512zm-54.1-26.9h35.1l18.9-57.9 6.8-1.3c16.2-4 31.1-10.8 45.9-18.9l6.8-4 54 26.9 24.3-24.3-27-53.9 4.1-6.7c8.1-13.5 14.9-29.6 18.9-45.8l1.4-6.7 58.1-18.9v-35l-58.1-18.9-1.4-6.7c-4.1-16.2-10.8-31-18.9-45.8l-4.1-6.7 27-53.9-24.3-24.3-54 26.9-6.8-4c-14.8-8.2-29.7-14.9-45.9-19l-6.8-1.3L274.2 27h-35.1l-18.9 57.9-6.8 1.3c-16.2 4-31.1 10.8-45.9 18.9l-6.8 4-54-26.9-24.3 24.3 27 53.9-4.1 6.7c-8.1 13.5-14.9 29.6-18.9 45.8l-1.4 6.7-58 18.9v35l58.1 18.9 1.4 6.7c4.1 16.2 10.8 31 18.9 45.8l4.1 6.7-27 53.9 24.3 24.3 54-26.9 6.8 4c14.9 8.1 29.7 14.8 45.9 18.9l6.8 1.3 18.8 58z"/>
+			</symbol>
+		</svg>
+		<!-- /fabricator icons -->
+		<!-- fabricator menu -->
+		<div class="f-menu">
+		
+			<div class="f-controls">
+				<div class="f-control f-global-control" data-f-toggle-control="labels" title="Toggle Labels">
+					<svg>
+						<use xlink:href="#f-icon-labels" />
+					</svg>
+				</div>
+				<div class="f-control f-global-control" data-f-toggle-control="notes" title="Toggle Notes">
+					<svg>
+						<use xlink:href="#f-icon-notes" />
+					</svg>
+				</div>
+				<div class="f-control f-global-control" data-f-toggle-control="code" title="Toggle Code">
+					<svg>
+						<use xlink:href="#f-icon-code" />
+					</svg>
+				</div>
+			</div>
+		
+			<ul>
+				<li>
+					<a href="index.html" class="f-menu__heading">Overview</a>
+				</li>
+			</ul>
+		
+			<div class="f-search">
+				<input type="text" placeholder="Search"/>
+				<input type="button" name="delete" value="&#10060;" />
+			</div>
+			
+			<ul class="f-materials">
+				<li class="is-open">
+					<a href="basics.html" class="f-menu__heading">Basics</a>
+					<ul>
+								<li>
+								<a href="basics.html#button">Button</a>
+							</li>
+								<li class="f-menu__accordion-group">
+									<div class="control"></div>
+									<a class="f-menu__accordion-toggle" href="basics.html#forms">Forms</a>
+									<ul class="f-menu__accordion">
+											<li>
+												<a href="basics.html#forms.checkbox">Checkbox</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.file">File</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.input">Input</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.label">Label</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.radio">Radio</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.select">Select</a>
+											</li>
+											<li>
+												<a href="basics.html#forms.textarea">Textarea</a>
+											</li>
+									</ul>
+							</li>
+								<li>
+								<a href="basics.html#icon">Icon</a>
+							</li>
+								<li>
+								<a href="basics.html#image">Image</a>
+							</li>
+								<li>
+								<a href="basics.html#progress">Progress</a>
+							</li>
+								<li>
+								<a href="basics.html#search-bar">Search Bar</a>
+							</li>
+								<li>
+								<a href="basics.html#table">Table</a>
+							</li>
+								<li>
+								<a href="basics.html#tag">Tag</a>
+							</li>
+								<li>
+								<a href="basics.html#title">Title</a>
+							</li>
+					</ul>
+				</li>
+				<li class="is-open">
+					<a href="components.html" class="f-menu__heading">Components</a>
+					<ul>
+								<li>
+								<a href="components.html#breadcrumb">Breadcrumb</a>
+							</li>
+								<li>
+								<a href="components.html#card">Card</a>
+							</li>
+								<li>
+								<a href="components.html#collapsible">Collapsible</a>
+							</li>
+								<li>
+								<a href="components.html#dropdown">Dropdown</a>
+							</li>
+								<li>
+								<a href="components.html#dynamic-template">Dynamic Template</a>
+							</li>
+								<li>
+								<a href="components.html#form-fields">Form Fields</a>
+							</li>
+								<li>
+								<a href="components.html#hero">Hero</a>
+							</li>
+								<li>
+								<a href="components.html#menu">Menu</a>
+							</li>
+								<li>
+								<a href="components.html#message">Message</a>
+							</li>
+								<li>
+								<a href="components.html#modal">Modal</a>
+							</li>
+								<li>
+								<a href="components.html#notification">Notification</a>
+							</li>
+								<li>
+								<a href="components.html#pagination">Pagination</a>
+							</li>
+								<li>
+								<a href="components.html#paragraph">Paragraph</a>
+							</li>
+								<li>
+								<a href="components.html#tabs">Tabs</a>
+							</li>
+					</ul>
+				</li>
+				<li class="is-open">
+					<a href="structures.html" class="f-menu__heading">Structures</a>
+					<ul>
+								<li>
+								<a href="structures.html#footer">Footer</a>
+							</li>
+								<li>
+								<a href="structures.html#form">Form</a>
+							</li>
+								<li>
+								<a href="structures.html#navigation">Navigation</a>
+							</li>
+					</ul>
+				</li>
+		
+				<li class="is-open">
+					<a href="pages.html" class="f-menu__heading">Pages</a>
+					<ul>
+						<li>
+							<a href="pages/home.html" target="_blank">Home</a>
+						</li>
+						<li>
+							<a href="pages/overview.html" target="_blank">Overview</a>
+						</li>
+						<li>
+							<a href="pages/product-detail.html" target="_blank">Product Detail</a>
+						</li>
+					</ul>
+				</li>
+		
+				<li class="is-open">
+					<a href="docs.html" class="f-menu__heading">Docs</a>
+					<ul>
+						<li>
+							<a href="docs.html#conventions">Conventions</a>
+						</li>
+					</ul>
+				</li>
+		
+			</ul>
+		
+		
+		</div>
+		<!-- /fabricator menu -->		<div class="f-container">
+			<div class="f-control-bar">
+				<div class="f-control f-menu-toggle">
+					<svg>
+						<use xlink:href="#f-icon-menu" />
+					</svg>
+				</div>
+			</div>
+
+	
+	
+<h1 data-f-toggle="labels" class="f-title is-1">Basics</h1>
+
+
+<div class="f-item-group" id="button">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Button</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>An all purpose button in various states, sizes and colours.</p>
+<p><strong>Options as passed by the data:</strong></p>
+<ul>
+<li><code>element</code> custom element instead of <code>a</code></li>
+<li><code>type</code> optional type if button</li>
+<li><code>url</code> optional link if anchor</li>
+<li><code>classes</code> a list of classnames for the button</li>
+<li><code>text</code> the button label</li>
+<li><code>is-static</code> setting this to <code>1</code> removes all clickevents from the button without visual changes</li>
+<li><code>is-disabled</code> setting this to <code>1</code> applies visual changes, disables the button if <code>is-button</code> is <code>0</code></li>
+<li><code>is-rounded</code> setting this to <code>1</code> rounds out the button visually</li>
+</ul>
+<p>The following require the use of one of the <a href="index.html#colour">Colours</a></p>
+<ul>
+<li><code>is-outlined</code> setting this to <code>1</code> creates a ghost button</li>
+<li><code>is-inverted</code> setting this to <code>1</code> swaps <code>$background-color</code> and <code>$color</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/button/">Bulma documentation</a>. Note the section about <code>buttons</code> and <code>formgroups</code> <a href="https://bulma.io/documentation/elements/button/#list-of-buttons">here</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<a href="#" class="button is-dark">
+
+
+</a>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;button is-dark&quot;&gt;
+
+
+&lt;/a&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">element: null
+type: null
+url: &#x27;#&#x27;
+classes: is-dark
+text: null
+icon: null
+icon-description: null
+is-disabled: 0
+is-static: 0
+is-rounded: 0
+is-inverted: 0
+is-outlined: 0
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="forms">
+
+	<div class="f-item-heading-group">
+		<h3 class="f-item-heading f-title" data-f-toggle="labels">Forms</h3>
+	</div>
+		<div class="f-item-group" id="forms.checkbox">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">Checkbox</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A default checkbox. It is intentionally not styled, to preserve cross-browser compatibility and the user experience.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames to wrap the checkbox in.</li>
+<li><code>label</code> is the checkbox text. HTML such as links are allowed as long as escaped properly.</li>
+<li><code>is-disabled</code> setting this to <code>1</code> disables the checkbox. Default is <code>0</code></li>
+<li><code>is-required</code> setting this to <code>1</code> adds the <code>required</code> attribute used for validation (not included). Default is <code>0</code></li>
+<li><code>is-checked</code> setting this to <code>1</code> preticks the checkbox. Default is <code>0</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/checkbox/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<label class="checkbox " id="checkbox">
+	<input type="checkbox" />
+	Default <a href="">label</a>
+</label>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;label class&#x3D;&quot;checkbox &quot; id&#x3D;&quot;checkbox&quot;&gt;
+	&lt;input type&#x3D;&quot;checkbox&quot; /&gt;
+	Default &lt;a href&#x3D;&quot;&quot;&gt;label&lt;/a&gt;
+&lt;/label&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+id: checkbox
+label: Default &lt;a href&#x3D;&quot;&quot;&gt;label&lt;/a&gt;
+is-checked: 0
+is-disabled: 0
+is-required: 0
+</code></pre>
+</div>
+
+		</div>
+		<div class="f-item-group" id="forms.file">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">File</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A styled upload action. It comes in two different styles: default and <code>is-boxed</code>.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames to wrap the File in. Supports most of Bulma's <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>is-boxed</code> setting this to <code>1</code> changes the styling from inline to a boxed block button. Default is <code>0</code></li>
+<li><code>has-name</code> setting this to <code>1</code> adds a filename container. Used together with <code>filename</code>. Default is <code>0</code></li>
+<li><code>filename</code> the filename shown in the <code>file-name</code> container. Required <code>has-name</code> to be set</li>
+<li><code>label</code> is the button text. HTML is not allowed</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/file/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<div class="file has-name  ">
+	<label class="file-label">
+		<input class="file-input" type="file" name="" id="file-example">
+		<span class="file-cta">
+			<span class="file-label">
+				Choose file
+			</span>
+		</span>
+		<span class="file-name">
+			resume.docx
+		</span>
+	</label>
+</div>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;div class&#x3D;&quot;file has-name  &quot;&gt;
+	&lt;label class&#x3D;&quot;file-label&quot;&gt;
+		&lt;input class&#x3D;&quot;file-input&quot; type&#x3D;&quot;file&quot; name&#x3D;&quot;&quot; id&#x3D;&quot;file-example&quot;&gt;
+		&lt;span class&#x3D;&quot;file-cta&quot;&gt;
+			&lt;span class&#x3D;&quot;file-label&quot;&gt;
+				Choose file
+			&lt;/span&gt;
+		&lt;/span&gt;
+		&lt;span class&#x3D;&quot;file-name&quot;&gt;
+			resume.docx
+		&lt;/span&gt;
+	&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+id: file-example
+label: Choose file
+has-name: 1
+is-boxed: 0
+filename: resume.docx
+</code></pre>
+</div>
+
+		</div>
+		<div class="f-item-group" id="forms.input">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">Input</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A form input element, used for all valid input types.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames for the input. Supports most of Bulma's <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>id</code> the id of the input. Make sure this matches a <code>label</code>'s <code>for</code> when used together with a <a href="basics.html#forms.label">Label Basic</a></li>
+<li><code>type</code> changes the type of the input as specified by the <code>input</code> spec. Defaults to <code>text</code> when left blank</li>
+<li><code>placeholder</code> the placeholder of the input</li>
+<li><code>value</code> the value of the input. Typically used when the input should be prefilled.</li>
+<li><code>is-disabled</code> setting this to <code>1</code> disables the input. Default is <code>0</code></li>
+<li><code>is-required</code> setting this to <code>1</code> adds the <code>required</code> attribute used for validation (not included). Default is <code>0</code></li>
+<li><code>is-static</code> setting this to <code>1</code> removes styling while maintaining vertical spacing. Typically used with <code>is-readonly</code>. Default is <code>0</code></li>
+<li><code>is-readonly</code> setting this to <code>1</code> makes the input readonly. Default is <code>0</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/input/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<input type="text" id="input-example" class="input  is-rounded" placeholder="Waar ben je naar op zoek?" value="" />
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;input-example&quot; class&#x3D;&quot;input  is-rounded&quot; placeholder&#x3D;&quot;Waar ben je naar op zoek?&quot; value&#x3D;&quot;&quot; /&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: is-rounded
+type: text
+id: input-example
+placeholder: Waar ben je naar op zoek?
+value: null
+is-disabled: 0
+is-required: 0
+is-static: 0
+is-readonly: 0
+</code></pre>
+</div>
+
+		</div>
+		<div class="f-item-group" id="forms.label">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">Label</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>Label element used for forms.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames to wrap the label in. Supports most of Bulma's <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>text</code> the label's text</li>
+<li><code>for</code> the label's <code>for</code> element.</li>
+</ul>
+
+</div>
+<div class="f-item-preview">
+	<label class="label " for="label-example">Default label</label>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;label class&#x3D;&quot;label &quot; for&#x3D;&quot;label-example&quot;&gt;Default label&lt;/label&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+text: Default label
+for: label-example
+id: label-id
+</code></pre>
+</div>
+
+		</div>
+		<div class="f-item-group" id="forms.radio">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">Radio</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>The mutually exclusive radio buttons in their native format. It is intentionally not styled, to preserve cross-browser compatibility and the user experience.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>id</code> acts as the <code>name</code> for the radio group. Additionally generates an <code>id</code> for each radio wrapper by appending a number, e.g. <code>example-1</code>.</li>
+<li><code>options</code> a list of radiobuttons. Each their own set of options:
+<ul>
+<li><code>classes</code> a list of classnames to wrap the radiobutton in.</li>
+<li><code>value</code> the value of the radiobutton.</li>
+<li><code>is-disabled</code> setting this to <code>1</code> disables the radiobutton. Default is <code>0</code></li>
+<li><code>is-required</code> setting this to <code>1</code> adds the <code>required</code> attribute used for validation (not included). Default is <code>0</code></li>
+<li><code>is-checked</code> setting this to <code>1</code> preticks the radiobutton. Default is <code>0</code></li>
+</ul>
+</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/radio/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<label class="radio " id="radio-0">
+	<input type="radio" name="radio" value="green" checked> Green
+</label>
+<label class="radio " id="radio-1">
+	<input type="radio" name="radio" value="red"> Red
+</label>
+<label class="radio " disabled id="radio-2">
+	<input type="radio" name="radio" value="blue" disabled> Blue
+</label>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;label class&#x3D;&quot;radio &quot; id&#x3D;&quot;radio-0&quot;&gt;
+	&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;radio&quot; value&#x3D;&quot;green&quot; checked&gt; Green
+&lt;/label&gt;
+&lt;label class&#x3D;&quot;radio &quot; id&#x3D;&quot;radio-1&quot;&gt;
+	&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;radio&quot; value&#x3D;&quot;red&quot;&gt; Red
+&lt;/label&gt;
+&lt;label class&#x3D;&quot;radio &quot; disabled id&#x3D;&quot;radio-2&quot;&gt;
+	&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;radio&quot; value&#x3D;&quot;blue&quot; disabled&gt; Blue
+&lt;/label&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">id: radio
+options:
+  - label: Green
+    value: green
+    classes: null
+    is-checked: 1
+    is-disabled: 0
+  - label: Red
+    value: red
+    classes: null
+    is-checked: 0
+    is-disabled: 0
+  - label: Blue
+    value: blue
+    classes: null
+    is-checked: 0
+    is-disabled: 1
+</code></pre>
+</div>
+
+		</div>
+		<div class="f-item-group" id="forms.select">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">Select</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>The browser native dropdown menu.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>placeholder</code> placeholder of the selectbox.</li>
+<li><code>classes</code> a list of classnames for the dropdown. Supports most of Bulma's <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>id</code> the id of the dropdown. Make sure this matches a <code>label</code>'s <code>for</code> when used together with a <a href="basics.html#forms.label">Label Basic</a></li>
+<li><code>options</code> a list of available options</li>
+<li><code>groups</code> a list of groups which contain a list of options</li>
+<li><code>is-disabled</code> setting this to <code>1</code> disables the dropdown menu. Default is <code>0</code></li>
+<li><code>is-required</code> setting this to <code>1</code> adds the <code>required</code> attribute used for validation (not included). Default is <code>0</code></li>
+<li><code>is-multiple</code> setting this to anything other than <code>0</code> enables the browser native multiple-select behaviour. The amount of items shown initially is identical to the value of <code>is-multiple</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/select/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<div class="select  ">
+	<select id="selectbox">
+		<option value="" selected disabled>Choose</option>
+		<option value="Pink Floyd">Pink Floyd</option>
+		<option value="Ringo Starr">Ringo Starr</option>
+		<optgroup label="Beatles">
+			<option value="Ringo">Ringo</option>
+			<option value="John">John</option>
+			<option value="Paul">Paul</option>
+			<option value="George">George</option>
+		</optgroup>
+		<optgroup label="Bee Gees">
+			<option value="Barry Gibb">Barry Gibb</option>
+			<option value="Robin Gibb">Robin Gibb</option>
+			<option value="Maurice Gibb">Maurice Gibb</option>
+			<option value="Don Henley">Don Henley</option>
+		</optgroup>
+	</select>
+</div>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;div class&#x3D;&quot;select  &quot;&gt;
+	&lt;select id&#x3D;&quot;selectbox&quot;&gt;
+		&lt;option value&#x3D;&quot;&quot; selected disabled&gt;Choose&lt;/option&gt;
+		&lt;option value&#x3D;&quot;Pink Floyd&quot;&gt;Pink Floyd&lt;/option&gt;
+		&lt;option value&#x3D;&quot;Ringo Starr&quot;&gt;Ringo Starr&lt;/option&gt;
+		&lt;optgroup label&#x3D;&quot;Beatles&quot;&gt;
+			&lt;option value&#x3D;&quot;Ringo&quot;&gt;Ringo&lt;/option&gt;
+			&lt;option value&#x3D;&quot;John&quot;&gt;John&lt;/option&gt;
+			&lt;option value&#x3D;&quot;Paul&quot;&gt;Paul&lt;/option&gt;
+			&lt;option value&#x3D;&quot;George&quot;&gt;George&lt;/option&gt;
+		&lt;/optgroup&gt;
+		&lt;optgroup label&#x3D;&quot;Bee Gees&quot;&gt;
+			&lt;option value&#x3D;&quot;Barry Gibb&quot;&gt;Barry Gibb&lt;/option&gt;
+			&lt;option value&#x3D;&quot;Robin Gibb&quot;&gt;Robin Gibb&lt;/option&gt;
+			&lt;option value&#x3D;&quot;Maurice Gibb&quot;&gt;Maurice Gibb&lt;/option&gt;
+			&lt;option value&#x3D;&quot;Don Henley&quot;&gt;Don Henley&lt;/option&gt;
+		&lt;/optgroup&gt;
+	&lt;/select&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">placeholder: Choose
+classes: null
+id: selectbox
+is-multiple: 0
+is-disabled: 0
+is-required: 0
+options:
+  - Pink Floyd
+  - Ringo Starr
+groups:
+  - label: Beatles
+    options:
+      - Ringo
+      - John
+      - Paul
+      - George
+  - label: Bee Gees
+    options:
+      - Barry Gibb
+      - Robin Gibb
+      - Maurice Gibb
+      - Don Henley
+</code></pre>
+</div>
+
+		</div>
+		<div class="f-item-group" id="forms.textarea">
+			<div class="f-item-heading-group" data-f-toggle="labels">
+				<h4 class="f-item-heading f-title is-5">Textarea</h4>
+				<div class="f-item-controls">
+					<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+						<svg>
+							<use xlink:href="#f-icon-notes" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+						<svg>
+							<use xlink:href="#f-icon-code" />
+						</svg>
+					</span>
+					<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+						<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+					</span>
+				</div>
+			</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A multiline textarea.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames for the textarea. Supports most of Bulma's <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>id</code> the id of the textarea. Make sure this matches a <code>label</code>'s <code>for</code> when used together with a <a href="basics.html#forms.label">Label Basic</a></li>
+<li><code>placeholder</code> the placeholder of the textarea</li>
+<li><code>value</code> the value of the input. Typically used when the textarea should be prefilled</li>
+<li><code>rows</code> the amount of visible rows, affecting the height. Default is blank</li>
+<li><code>is-disabled</code> setting this to <code>1</code> disables the textarea. Default is <code>0</code></li>
+<li><code>is-required</code> setting this to <code>1</code> adds the <code>required</code> attribute used for validation (not included). Default is <code>0</code></li>
+<li><code>is-readonly</code> setting this to <code>1</code> makes the textarea readonly. Default is <code>0</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/textarea/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<textarea class="textarea " id="textarea-example" placeholder="Default placeholder" rows="6">lorem ipsum</textarea>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;textarea class&#x3D;&quot;textarea &quot; id&#x3D;&quot;textarea-example&quot; placeholder&#x3D;&quot;Default placeholder&quot; rows&#x3D;&quot;6&quot;&gt;lorem ipsum&lt;/textarea&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+id: textarea-example
+placeholder: Default placeholder
+value: lorem ipsum
+rows: 6
+is-disabled: 0
+is-required: 0
+is-readonly: 0
+</code></pre>
+</div>
+
+		</div>
+
+</div>
+
+
+<div class="f-item-group" id="icon">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Icon</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>Icon Basic using FontAwesome. <em><strong>FontAwesome IconFont not included by default.</strong></em><br>
+Bulma is compatible with all icon font libraries: Font Awesome 5, Font Awesome 4, Material Design Icons, Ionicons, etc.<br>
+Setup specific IconFont per project.</p>
+<p><strong>Options as passed by the data:</strong></p>
+<ul>
+<li><code>name</code> name of icon</li>
+<li><code>size</code> optional size of the icon. Accepts <code>small</code>, <code>medium</code>, <code>large</code>. Not using a size class puts the icon size between <code>small</code> and <code>medium</code>.</li>
+<li><code>classes</code> additional classes of icon</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/icon/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<span class="icon">
+	<i class="fas fa-home"></i>
+</span>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;span class&#x3D;&quot;icon&quot;&gt;
+	&lt;i class&#x3D;&quot;fas fa-home&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">name: home
+size: null
+classes: null
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="image">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Image</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A container for reponsive images. The size is attached to the container rather than the image itself to prevent layout issues when the image takes longer to load.<br>
+There are two types available, <strong>sized images</strong> and <strong>ratio images</strong>.<br>
+<em>Note the difference in notation, <code>32x32</code> versus <code>4by3</code>.</em></p>
+<p><strong>Sized images</strong><br>
+These are specifically sized <strong>square</strong> images, typically used for packshots or avatars. Images placed in this container will size to specified size regardless of source material. Useful for retina screens where you would use higher resolution images.<br>
+The list of available sizes are specified in <code>src/assets/toolkit/styles/theme/variables.scss</code>, in the <code>$dimensions</code> variable. The appropriate classes are then generated by sass (ie <code>is-64x64</code>).<br>
+<em>Make sure to update this documentation when the list is modified!</em></p>
+<p><strong>Ratio images</strong><br>
+Images placed in this container will always fill the <strong>entire width</strong> available while growing in height according to the ratio. Useful for responsive scalable images in which the ratio is important, e.g. article headers.</p>
+<p><strong>Options as passed by the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames for the container</li>
+<li><code>url</code> the url to the source images <em>relative to</em> <code>/assets/toolkit/images/</code></li>
+<li><code>alt</code> the text alternative.</li>
+<li><code>is-rounded</code> changing this to <code>1</code> results in a circular image. Default is <code>0</code>.</li>
+<li><code>size</code> the size or ratio the images should adhere to.
+<ul>
+<li>for <strong>sized</strong> images these are speciefied in <code>$dimensions</code> (see above). Defaults are <code>16x16</code>, <code>24x24</code>, <code>32x32</code>, <code>48x48</code>, <code>64x64</code>, <code>96x96</code>, <code>128x128</code></li>
+<li>available <strong>ratios</strong> are: <code>1by1</code>, <code>4by3</code>, <code>3by2</code>, <code>16by9</code>, <code>2by1</code></li>
+</ul>
+</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/image/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<figure class="image 128x128 ">
+	<img src="./../assets/toolkit/images/temp/128x128.png" alt="Default image" />
+</figure>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;figure class&#x3D;&quot;image 128x128 &quot;&gt;
+	&lt;img src&#x3D;&quot;./../assets/toolkit/images/temp/128x128.png&quot; alt&#x3D;&quot;Default image&quot; /&gt;
+&lt;/figure&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+size: 128x128
+url: temp/128x128.png
+alt: Default image
+is-rounded: 0
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="progress">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Progress</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A html native progress bar.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classes for the progress element. Supports <strong>colour</strong> and <strong>size</strong> <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>max</code> the bar's maximum value</li>
+<li><code>value</code> the bar's current value</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/progress/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<progress class="progress " value="25" max="100">25</progress>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;progress class&#x3D;&quot;progress &quot; value&#x3D;&quot;25&quot; max&#x3D;&quot;100&quot;&gt;25&lt;/progress&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+max: 100
+value: 25
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="search-bar">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Search Bar</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A form input element, used for all valid input types.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames for the input. Supports most of Bulma's <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>id</code> the id of the input. Make sure this matches a <code>label</code>'s <code>for</code> when used together with a <a href="basics.html#forms.label">Label Basic</a></li>
+<li><code>type</code> changes the type of the input as specified by the <code>input</code> spec. Defaults to <code>text</code> when left blank</li>
+<li><code>placeholder</code> the placeholder of the input</li>
+<li><code>value</code> the value of the input. Typically used when the input should be prefilled.</li>
+<li><code>is-disabled</code> setting this to <code>1</code> disables the input. Default is <code>0</code></li>
+<li><code>is-required</code> setting this to <code>1</code> adds the <code>required</code> attribute used for validation (not included). Default is <code>0</code></li>
+<li><code>is-static</code> setting this to <code>1</code> removes styling while maintaining vertical spacing. Typically used with <code>is-readonly</code>. Default is <code>0</code></li>
+<li><code>is-readonly</code> setting this to <code>1</code> makes the input readonly. Default is <code>0</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/form/input/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<input type="text" id="input-example" class="input  " placeholder="Waar ben je naar op zoek?" value="" />
+<img class="search-icon" src="../assets/toolkit/images/temp/icon-search-bar.svg" alt="Search icon" />
+<button class="delete close-icon is-hidden"></button>
+<nav class="panel is-hidden">
+	<p class="panel-tabs">
+		<a class="panel-tab is-active">Artikelen</a>
+		<a class="panel-tab">Zoekopdrachten</a>
+		<a class="panel-tab">Pagina's</a>
+		<a class="panel-tab">Categorieën</a>
+	</p>
+	<a class="panel-block">
+		Taartvorm met losse bodem, metaal Ø 10 cm
+	</a>
+	<a class="panel-block">
+		Taartvorm met losse bodem, metaal, 21x21cm
+	</a>
+	<a class="panel-block">
+		Taartvorm met losse bodem, metaal, 35x11cm
+	</a>
+	<a class="panel-block">
+		Taart-/ quichevorm, porselein, Ø 22 cm
+	</a>
+	<div class="panel-block">
+		<a href="overview.html" class="button is-dark">
+			Bekijk alle resultaten (16)
+		</a>
+	</div>
+</nav>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;input-example&quot; class&#x3D;&quot;input  &quot; placeholder&#x3D;&quot;Waar ben je naar op zoek?&quot; value&#x3D;&quot;&quot; /&gt;
+&lt;img class&#x3D;&quot;search-icon&quot; src&#x3D;&quot;../assets/toolkit/images/temp/icon-search-bar.svg&quot; alt&#x3D;&quot;Search icon&quot; /&gt;
+&lt;button class&#x3D;&quot;delete close-icon is-hidden&quot;&gt;&lt;/button&gt;
+&lt;nav class&#x3D;&quot;panel is-hidden&quot;&gt;
+	&lt;p class&#x3D;&quot;panel-tabs&quot;&gt;
+		&lt;a class&#x3D;&quot;panel-tab is-active&quot;&gt;Artikelen&lt;/a&gt;
+		&lt;a class&#x3D;&quot;panel-tab&quot;&gt;Zoekopdrachten&lt;/a&gt;
+		&lt;a class&#x3D;&quot;panel-tab&quot;&gt;Pagina&#x27;s&lt;/a&gt;
+		&lt;a class&#x3D;&quot;panel-tab&quot;&gt;Categorieën&lt;/a&gt;
+	&lt;/p&gt;
+	&lt;a class&#x3D;&quot;panel-block&quot;&gt;
+		Taartvorm met losse bodem, metaal Ø 10 cm
+	&lt;/a&gt;
+	&lt;a class&#x3D;&quot;panel-block&quot;&gt;
+		Taartvorm met losse bodem, metaal, 21x21cm
+	&lt;/a&gt;
+	&lt;a class&#x3D;&quot;panel-block&quot;&gt;
+		Taartvorm met losse bodem, metaal, 35x11cm
+	&lt;/a&gt;
+	&lt;a class&#x3D;&quot;panel-block&quot;&gt;
+		Taart-/ quichevorm, porselein, Ø 22 cm
+	&lt;/a&gt;
+	&lt;div class&#x3D;&quot;panel-block&quot;&gt;
+		&lt;a href&#x3D;&quot;overview.html&quot; class&#x3D;&quot;button is-dark&quot;&gt;
+			Bekijk alle resultaten (16)
+		&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: is-rounded
+type: text
+id: input-example
+placeholder: Waar ben je naar op zoek?
+value: null
+is-disabled: 0
+is-required: 0
+is-static: 0
+is-readonly: 0
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="table">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Table</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>A default table used for tabular data. Cellpadding is relative to the font size to ensure a cleaner layout.</p>
+<p><strong>Options as passed from the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames for the table.</li>
+<li><code>is-narrow</code> setting this to <code>1</code> reduces the padding of each cell for a smaller look. Default is <code>0</code></li>
+<li><code>is-fullwidth</code> setting this to <code>1</code> makes the table fill out all available space. Default is <code>0</code></li>
+<li><code>is-bordered</code> setting this to <code>1</code> adds borders to all cells. Default is <code>0</code></li>
+<li><code>is-striped</code> setting this to <code>1</code> adds zerba striping for legibility. Default is <code>0</code></li>
+<li><code>is-hoverable</code> setting this to <code>1</code> adds a hover effect to each row, sometimes increasing legibility. Default is <code>0</code></li>
+</ul>
+<p><strong>The content</strong> of the table itself is passed in YAML in the same structure as in html:</p>
+<ul>
+<li><code>thead</code> and/or <code>tfoot</code>. These are optional.
+<ul>
+<li><code>classes</code> a list of classnames for the row</li>
+<li><code>cells</code> a list of for this row, each with two options:
+<ul>
+<li><code>text</code> the content of the cell. HTML is allowed if escaped properly</li>
+<li><code>classes</code> a list of classnames for the cell</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>tbody</code>
+<ul>
+<li><code>row</code> each instance generates another <code>tr</code>
+<ul>
+<li><code>classes</code> a list of classnames for the row</li>
+<li><code>cells</code> a list of cells for this row, each with the following options:
+<ul>
+<li><code>text</code> the content of the cell. HTML is allowed if escaped properly</li>
+<li><code>classes</code> a list of classnames for the cell</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/table/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<table class="table ">
+	<thead>
+		<tr class="">
+			<th class="">One</th>
+			<th class="">Two</th>
+			<th class="">Three</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="">
+			<td class="">Four</td>
+			<td class="">Five</td>
+			<td class="">Six</td>
+		</tr>
+		<tr class="">
+			<td class="">Seven</td>
+			<td class="">Eight</td>
+			<td class=""><a href="">Nine</a></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr class="">
+			<th class="">Ten</th>
+			<th class="">Eleven</th>
+			<th class="">Twelve</th>
+		</tr>
+	</tfoot>
+</table>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;table class&#x3D;&quot;table &quot;&gt;
+	&lt;thead&gt;
+		&lt;tr class&#x3D;&quot;&quot;&gt;
+			&lt;th class&#x3D;&quot;&quot;&gt;One&lt;/th&gt;
+			&lt;th class&#x3D;&quot;&quot;&gt;Two&lt;/th&gt;
+			&lt;th class&#x3D;&quot;&quot;&gt;Three&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr class&#x3D;&quot;&quot;&gt;
+			&lt;td class&#x3D;&quot;&quot;&gt;Four&lt;/td&gt;
+			&lt;td class&#x3D;&quot;&quot;&gt;Five&lt;/td&gt;
+			&lt;td class&#x3D;&quot;&quot;&gt;Six&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr class&#x3D;&quot;&quot;&gt;
+			&lt;td class&#x3D;&quot;&quot;&gt;Seven&lt;/td&gt;
+			&lt;td class&#x3D;&quot;&quot;&gt;Eight&lt;/td&gt;
+			&lt;td class&#x3D;&quot;&quot;&gt;&lt;a href&#x3D;&quot;&quot;&gt;Nine&lt;/a&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr class&#x3D;&quot;&quot;&gt;
+			&lt;th class&#x3D;&quot;&quot;&gt;Ten&lt;/th&gt;
+			&lt;th class&#x3D;&quot;&quot;&gt;Eleven&lt;/th&gt;
+			&lt;th class&#x3D;&quot;&quot;&gt;Twelve&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+is-narrow: 0
+is-fullwidth: 0
+is-striped: 0
+is-bordered: 0
+is-hoverable: 0
+thead:
+  classes: null
+  cells:
+    - text: One
+    - text: Two
+    - text: Three
+tfoot:
+  classes: null
+  cells:
+    - text: Ten
+    - text: Eleven
+    - text: Twelve
+tbody:
+  - row:
+      classes: null
+      cells:
+        - text: Four
+        - text: Five
+        - text: Six
+  - row:
+      classes: null
+      cells:
+        - text: Seven
+        - text: Eight
+        - text: &lt;a href&#x3D;&quot;&quot;&gt;Nine&lt;/a&gt;
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="tag">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Tag</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>Tag labels, typically used for filters.<br>
+<em>When using multiple tags, the use of a <code>.tags</code> container is advised. <a href="https://bulma.io/documentation/elements/tag/#list-of-tags">Read more</a></em></p>
+<p><strong>Options as passed by the data:</strong></p>
+<ul>
+<li><code>classes</code> a list of classnames for the tag. Supports <strong>colour</strong> and <strong>size</strong> <a href="https://bulma.io/documentation/modifiers/syntax/">modifiers</a></li>
+<li><code>text</code> the text shown in the tag</li>
+<li><code>has-delete</code> setting this to <code>1</code> adds a delete button to the tag. Default is <code>0</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/tag/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<span class="tag ">Package </span>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;span class&#x3D;&quot;tag &quot;&gt;Package &lt;/span&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">classes: null
+text: Package
+has-delete: 0
+</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="title">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h4 class="f-item-heading f-title is-5">Title</h3>
+		<div class="f-item-controls">
+			<span class="f-control f-icon" data-f-toggle-control="notes" title="Toggle Notes">
+				<svg>
+					<use xlink:href="#f-icon-notes" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+			<span class="f-control f-icon" data-f-toggle-control="yml" title="Toggle Data">
+				<svg height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="letter-Y"><g id="Page-1" transform="translate(5.000000, 2.000000)"><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157" fill="#2FBBF4" id="Fill-1"/><path d="M8.7005,25.157 L8.7005,16.569 L2.0885,6.318 C1.5095,5.394 1.1005,4.674 0.8605,4.157 C0.6205,3.64 0.4995,3.19 0.4995,2.809 C0.4995,2.181 0.7435,1.639 1.2295,1.183 C1.7155,0.728 2.3165,0.5 3.0305,0.5 C3.7815,0.5 4.3505,0.712 4.7385,1.137 C5.1265,1.562 5.7085,2.409 6.4845,3.677 L11.5445,11.896 L16.6605,3.677 C16.9685,3.172 17.2275,2.747 17.4365,2.402 C17.6455,2.058 17.8765,1.734 18.1295,1.433 C18.3815,1.131 18.6615,0.9 18.9695,0.74 C19.2775,0.58 19.6525,0.5 20.0965,0.5 C20.7855,0.5 21.3615,0.725 21.8235,1.174 C22.2845,1.624 22.5155,2.144 22.5155,2.735 C22.5155,3.215 22.3985,3.695 22.1645,4.175 C21.9305,4.656 21.5305,5.321 20.9645,6.17 L14.1855,16.569 L14.1855,25.157 C14.1855,26.277 13.9275,27.115 13.4105,27.669 C12.8935,28.223 12.2345,28.5 11.4345,28.5 C10.6215,28.5 9.9625,28.226 9.4575,27.678 C8.9525,27.13 8.7005,26.29 8.7005,25.157 L8.7005,25.157 Z" id="Stroke-3" stroke="#092933" stroke-linejoin="round"/><path d="M11.434,27 C10.762,27 10.236,26.784 9.826,26.339 C9.411,25.889 9.201,25.155 9.201,24.157 L9.201,25.157 C9.201,26.155 9.411,26.889 9.826,27.339 C10.236,27.784 10.762,28 11.434,28 C12.095,28 12.622,27.78 13.045,27.328 C13.47,26.872 13.686,26.143 13.686,25.157 L13.686,24.157 C13.686,25.143 13.47,25.872 13.045,26.328 C12.622,26.78 12.095,27 11.434,27" fill="#332E09" id="Fill-5" opacity="0.203766325"/><path d="M19.1963,3.0104 L15.2583,9.4894" id="Stroke-7" stroke="#FFFFFF" stroke-dasharray="1,2,6,2,3" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
+			</span>
+		</div>
+	</div><div class="f-item-notes" data-f-toggle="notes">
+	<p>Simple headings to add depth to the page.</p>
+<p><strong>Options as passed by the data:</strong></p>
+<ul>
+<li><code>element</code> custom element instead of <code>h{{size}}</code></li>
+<li><code>classes</code> a list of classnames for the <code>h</code> element</li>
+<li><code>text</code> the title text. HTML is allowed if escaped properly</li>
+<li><code>subtitle</code> setting this to <code>1</code> results in a subtitle, which behaves differently when paired with a title</li>
+<li><code>size</code> changes the size of the title to preset values. Ranges from <code>1</code> (biggest) to <code>6</code> (smallest). Default is <code>3</code>. When using a <code>subtitle</code> a size difference of <strong>two</strong> is recommended</li>
+<li><code>is-spaced</code> setting this to <code>1</code> restores the spacing when succeeded by a <code>subtitle</code></li>
+</ul>
+<p><em><a href="https://bulma.io/documentation/elements/title/">Bulma documentation</a></em></p>
+
+</div>
+<div class="f-item-preview">
+	<h3 class="title is-3 ">Lorem ipsum</h3>
+</div>
+
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<p class="f-title is-6">HTML</p>
+	<pre class="language-markup"><code class="language-markup">&lt;h3 class&#x3D;&quot;title is-3 &quot;&gt;Lorem ipsum&lt;/h3&gt;</code></pre>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="yml">
+	<p class="f-title is-6">YML data</p>
+	<pre class="language-yml"><code class="language-yml">element: null
+classes: null
+text: Lorem ipsum
+size: 3
+subtitle: 0
+is-spaced: 0
+</code></pre>
+</div>
+
+
+</div>
+
+
+	
+
+
+		</div>
+	<script src="assets/fabricator/scripts/f.js"></script>
+
+	<!-- toolkit scripts -->
+	<script src="assets/toolkit/scripts/toolkit.js"></script>
+	<!-- /toolkit scripts -->
+
+</body>
+</html>
