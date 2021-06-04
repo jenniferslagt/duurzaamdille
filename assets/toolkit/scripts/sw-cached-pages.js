@@ -1,5 +1,5 @@
-console.log('check')
 
+const cacheName = 'version-1';
 
 // Call the activate event
 	self.addEventListener('activate', function (event) {
