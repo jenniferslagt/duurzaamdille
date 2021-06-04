@@ -7,3 +7,5 @@ console.log('Service Worker: Installed')
 self.addEventListener('activate', (e) => {
 console.log('Service Worker: Activated')
 })
+
+console.log('service worker')
