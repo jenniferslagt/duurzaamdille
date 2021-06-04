@@ -6,6 +6,6 @@ self.addEventListener('install', (e) => {
 })
 
 // Call activate event
-self.addEventListener('activate', (e) => {
-  console.log('Service Worker: Activated')
-})
+// self.addEventListener('activate', (e) => {
+//   console.log('Service Worker: Activated')
+// })
