@@ -267,11 +267,11 @@
 	</div>
 </nav>
 </div>
-<div class="notification ">
-	Deze pagina bespaardt 76% CO2!
-	<button class="delete"></button>
-</div>
-<div class="container search-bar"><input type="text" id="input-example" class="input  " placeholder="Waar ben je naar op zoek?"   value=""/>
+
+	<div class="notification ">
+		Deze pagina bespaardt 98% CO2!
+		<button class="delete"></button>
+	</div><div class="container search-bar"><input type="text" id="input-example" class="input  " placeholder="Waar ben je naar op zoek?"   value=""/>
 <img class="search-icon" src="../assets/toolkit/images/temp/icon-search-bar.svg" alt="Search icon"/>
  <button class="delete close-icon is-hidden"></button>
 <nav class="panel is-hidden">
@@ -301,50 +301,50 @@
   </nav>
 
 </div>
-	<div class="modal " id="example-modal">
-		<div class="modal-card">
-			<header class="modal-card-head">
-				<button class="delete" aria-label="close" data-modal-close></button>
-				<figure class="image  ">
-					<img  src="./../assets/toolkit/images/temp/logo-sustainable-website-white.svg" alt="Logo sustainable website" />
-				</figure>
-			</header>
-			<section class="modal-card-body">
-				<p class="paragraph">Bij Dille & Kamille is de natuur onze grootste bron van inspiratie, iets wat ons heel dierbaar is en waar we goed voor willen zorgen. 
-					Daarom kiezen we voor een duurzame website.</p>
-				</br>
-				<div class="columns is-mobile">
-					<p class="column">Deze pagina stoot 1,12 gram CO2 uit en bespaard gemiddeld 3,49 gram C02. Dat is 76% minder dan de gemiddelde website!</p>
-				</div>
-				<div class="columns is-mobile">
-					<p class="column">Stel je voor dat we 10,000 bezoekers per maand hebben voor een jaar lang, dan <b>besparen</b> we evenveel CO2 als 18 bomen gemiddeld in een jaar absorberen!</p>
-				</div>
-			</section>
-			<footer class="modal-card-foot">
-				<!--  -->
-				<p>Wil jij ook een duurzame website? Maar weet je niet waar je moet beginnen?</p>
-				<a target="_blank" href="https://sustainablewebpractices.netlify.app/" class="button ">Ontdek het dan hier!</a>
-				<!--  -->
-			</footer>
-		</div>
-		<!-- 
-		<button class="modal-close is-large" data-modal-close></button>
-		 -->
+<div class="modal " id="example-modal">
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<button class="delete" aria-label="close" data-modal-close></button>
+			<figure class="image  ">
+				<img  src="./../assets/toolkit/images/temp/logo-sustainable-website-white.svg" alt="Logo sustainable website" />
+			</figure>
+		</header>
+		<section class="modal-card-body">
+			<p class="paragraph">Bij Dille & Kamille is de natuur onze grootste bron van inspiratie, iets wat ons heel dierbaar is en waar we goed voor willen zorgen. 
+				Daarom kiezen we voor een duurzame website.</p>
+			</br>
+			<div class="columns is-mobile">
+				<p class="column">Deze pagina stoot 1,12 gram CO2 uit en bespaard gemiddeld 3,49 gram C02. Dat is 76% minder dan de gemiddelde website!</p>
+			</div>
+			<div class="columns is-mobile">
+				<p class="column">Stel je voor dat we 10,000 bezoekers per maand hebben voor een jaar lang, dan <b>besparen</b> we evenveel CO2 als 18 bomen gemiddeld in een jaar absorberen!</p>
+			</div>
+		</section>
+		<footer class="modal-card-foot">
+			<!--  -->
+			<p>Wil jij ook een duurzame website? Maar weet je niet waar je moet beginnen?</p>
+			<a target="_blank" href="https://sustainablewebpractices.netlify.app/" class="button ">Ontdek het dan hier!</a>
+			<!--  -->
+		</footer>
 	</div>
+	<!-- 
+	<button class="modal-close is-large" data-modal-close></button>
+	 -->
+</div>
 <section class="container product-cards has-filter">
 
 	<div class="overview-content-container columns">
-		<div class="filter-options column">
+		<div class="filter-options column is-3-desktop">
 			<button class="delete"></button>
 			<div class="filter-option dropdown is-hoverable">
-				<span class="filter-sort-by filter-title">Sorteren</span>
+				<span class="filter-sort-by filter-title">Sorteren op</span>
 				<div class="dropdown-trigger">
-					<button class="button is-light" aria-haspopup="true" aria-controls="dropdown-menu">
-						<span>Populariteit</span>
-						<figure class="image is-16x16 arrow-icon">
-							<img src="../assets/toolkit/images/temp/icon-arrow-black.svg"/>
-						</figure>
+					<button class="button is-light sort-btn" aria-haspopup="true" aria-controls="dropdown-menu">
+						Populariteit
 					</button>
+					<figure class="image is-16x16 arrow-icon">
+						<img src="../assets/toolkit/images/temp/icon-arrow-black.svg"/>
+					</figure>
 				</div>
 				<div class="dropdown-menu" id="dropdown-menu" role="menu">
 					<div class="dropdown-content">
@@ -360,19 +360,19 @@
 				<h4 class="filter-title">Categorieën</h4>
 				<ul>
 					<label class="checkbox-container">Bakingrediënten (3)
-						<input type="checkbox" checked="checked">
+						<input type="checkbox" class="f-categories f-ingredients">
 						<span class="checkmark"></span>
 					</label>
 					<label class="checkbox-container">Bakvormen &amp; pannen (5)
-						<input type="checkbox" checked="checked">
+						<input type="checkbox" class="f-categories f-pans">
 						<span class="checkmark"></span>
 					</label>
 					<label class="checkbox-container">Spatels, tangen &amp; bestek (3)
-						<input type="checkbox" checked="checked">
+						<input type="checkbox" class="f-categories f-cutlery">
 						<span class="checkmark"></span>
 					</label>
 					<label class="checkbox-container">Overige keukenartikelen (5)
-						<input type="checkbox" checked="checked">
+						<input type="checkbox" class="f-categories f-others">
 						<span class="checkmark"></span>
 					</label>
 				</ul>
@@ -383,53 +383,53 @@
 					<div class="columns is-mobile">
 						<div class="column">
 							<label class="checkbox-container">Zwart (2)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-black">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Grijs (4)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-grey">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Wit (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-white">
 								<span class="checkmark"></span>
 							</label>
-							<label class="checkbox-container">Blauw (2)
-								<input type="checkbox" checked="checked">
+							<label class="checkbox-container">Blauw (1)
+								<input type="checkbox" class="f-colors f-color-blue">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Rood (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-red">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Groen (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-green">
 								<span class="checkmark"></span>
 							</label>
 						</div>
 						<div class="column">
 							<label class="checkbox-container">Paars (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-purple">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Geel (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-yellow">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Roze (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-pink">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Oranje (1)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-orange">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Bruin (5)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-brown">
 								<span class="checkmark"></span>
 							</label>
 							<label class="checkbox-container">Overig (2)
-								<input type="checkbox" checked="checked">
+								<input type="checkbox" class="f-colors f-color-other">
 								<span class="checkmark"></span>
 							</label>
 						</div>
@@ -439,9 +439,9 @@
 			<div class="filter-option">
 				<span class="filter-title">Prijs</span>
 				<div class="price-inputs">
-					<input type="text" class="input price-input" value="0,95">
+					<input type="text" class="input price-input" value="0.95">
 					<span class="price-separator">tot</span>
-					<input type="text" class="input price-input" value="39,95">
+					<input type="text" class="input price-input" value="39.95">
 				</div>
 			</div>
 			<div class="filter-option">
@@ -450,209 +450,209 @@
 					<span class="checkmark"></span>
 				</label>
 			</div>
-			<button class="button is-dark">Bekijk (7)</button>
+			<button class="button is-dark filter-products-btn">Bekijk</button>
 		</div>
 
 		<div class="products column is-9-desktop">
-			<h1 class="title is-5">Bakspullen<span class="products-counter"> (16)</span></h1>
+			<h1 class="title is-5">Bakspullen <span class="products-counter">(16)</span></h1>
 			<button class="button is-dark filter-btn is-hidden-desktop"><img src="../assets/toolkit/images/temp/icon-filter.svg" alt="Filter icon" class="filter-icon"/></button>
 			<div class="columns is-mobile">
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/ovenwand-zandkleur.jpeg" alt="Afbeelding chocolade eieren melk" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Ovenwant</h1>
-									<p class="subtitle is-6">Bio katoen</p>
-									<p class="subtitle is-6">25 kleuren</p>
-									<span class="price">€4,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+					<div class="column is-half-mobile is-one-third-tablet f-color-white f-color-blue f-color-red f-color-green f-color-purple f-color-yellow f-color-pink f-color-orange f-color-brown f-color-other f-others">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/ovenwand-zandkleur.jpeg" alt="Afbeelding chocolade eieren melk" />
+								</figure>
 							</div>
-						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/bakbonen.jpeg" alt="afbeelding bakbonen" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Bakbonen</h1>
-									<p class="subtitle is-6">300 gram</p>
-									
-									<span class="price">€12,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+							<div class="card-content">
+								<h1 class="title is-6">Ovenwant</h1>
+								<p class="subtitle is-6">Bio katoen</p>
+								<p class="subtitle is-6">25 kleuren</p>
+								<span class="price">€4.95</span>
 							</div>
+							<a href="./product-detail.html" class="card-link"></a>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/cadeau-koekjes.jpeg" alt="Pakket koekjes bakken" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Pakket koekjes bakken</h1>
-									<p class="subtitle is-6">Samengesteld pakket</p>
-									
-									<span class="price">€11,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-ingredients">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/bakbonen.jpeg" alt="afbeelding bakbonen" />
+								</figure>
 							</div>
-						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/keukenweegschaal.jpeg" alt="Afbeelding Retro keukenweegschaal" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Retro keukenweegschaal</h1>
-									<p class="subtitle is-6">Metaal, 1kg</p>
-									<p class="subtitle is-6">2 kleuren</p>
-									<span class="price">€19,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+							<div class="card-content">
+								<h1 class="title is-6">Bakbonen</h1>
+								<p class="subtitle is-6">300 gram</p>
+								
+								<span class="price">€12.95</span>
 							</div>
+							<a href="./product-detail.html" class="card-link"></a>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/madeleinevorm.jpeg" alt="Afbeelding Madeleinevorm" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Madeleinevorm</h1>
-									<p class="subtitle is-6">Metaal, 40x20 cm</p>
-									
-									<span class="price">€11,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-ingredients">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/cadeau-koekjes.jpeg" alt="Pakket koekjes bakken" />
+								</figure>
 							</div>
-						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/speculaasplankje.jpeg" alt="Afbeelding Speculaasplankje" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Speculaasplankje stellingmolen</h1>
-									<p class="subtitle is-6">15x9 cm</p>
-									
-									<span class="price">€6,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+							<div class="card-content">
+								<h1 class="title is-6">Pakket koekjes bakken</h1>
+								<p class="subtitle is-6">Samengesteld pakket</p>
+								
+								<span class="price">€11.95</span>
 							</div>
+							<a href="./product-detail.html" class="card-link"></a>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/bakmix-bierbrood.jpeg" alt="Afbeelding Bakmix bierbrood" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Bakmix bierbrood</h1>
-									<p class="subtitle is-6">400 gram</p>
-									
-									<span class="price">€5,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-others f-color-black f-color-red">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/keukenweegschaal.jpeg" alt="Afbeelding Retro keukenweegschaal" />
+								</figure>
 							</div>
-						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/roomhoornpen.jpeg" alt="Afbeelding Roomhoornpen" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Roomhoornpen</h1>
-									<p class="subtitle is-6">Roestvrijstaal</p>
-									
-									<span class="price">€1,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+							<div class="card-content">
+								<h1 class="title is-6">Retro keukenweegschaal</h1>
+								<p class="subtitle is-6">Metaal, 1kg</p>
+								<p class="subtitle is-6">2 kleuren</p>
+								<span class="price">€19.95</span>
 							</div>
+							<a href="./product-detail.html" class="card-link"></a>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/poffertjespan.jpeg" alt="Afbeelding Poffertjespan gietijzer" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Poffertjespan gietijzer</h1>
-									<p class="subtitle is-6">24 cm</p>
-									
-									<span class="price">€39,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-pans f-color-grey">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/madeleinevorm.jpeg" alt="Afbeelding Madeleinevorm" />
+								</figure>
 							</div>
-						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/vleeshamer.jpeg" alt="Afbeelding Vleeshamer" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Vleeshamer</h1>
-									<p class="subtitle is-6">Beukenhout met aluminum</p>
-									
-									<span class="price">€5,50</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+							<div class="card-content">
+								<h1 class="title is-6">Madeleinevorm</h1>
+								<p class="subtitle is-6">Metaal, 40x20 cm</p>
+								
+								<span class="price">€11.95</span>
 							</div>
+							<a href="./product-detail.html" class="card-link"></a>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/bakkwastje.jpeg" alt="Afbeelding Bakkwastje rond" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Bakkwastje rond</h1>
-									<p class="subtitle is-6">Beukenhout</p>
-									
-									<span class="price">€2,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-pans f-color-brown">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/speculaasplankje.jpeg" alt="Afbeelding Speculaasplankje" />
+								</figure>
 							</div>
-						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
-							 <div class="card ">
-								<div class="card-image">
-									<figure class="image is-square ">
-										<img  src="./../assets/toolkit/images/barbecuepen.jpeg" alt="Afbeelding Bakkwastje rond" />
-									</figure>
-								</div>
-								<div class="card-content">
-									<h1 class="title is-6">Barbecuepen</h1>
-									<p class="subtitle is-6">Roestvrij staal , 35.5cm</p>
-									
-									<span class="price">€0,95</span>
-								</div>
-								<a href="./product-detail.html" class="card-link"></a>
+							<div class="card-content">
+								<h1 class="title is-6">Speculaasplankje stellingmolen</h1>
+								<p class="subtitle is-6">15x9 cm</p>
+								
+								<span class="price">€6.95</span>
 							</div>
+							<a href="./product-detail.html" class="card-link"></a>
 						</div>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-ingredients f-color-brown">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/bakmix-bierbrood.jpeg" alt="Afbeelding Bakmix bierbrood" />
+								</figure>
+							</div>
+							<div class="card-content">
+								<h1 class="title is-6">Bakmix bierbrood</h1>
+								<p class="subtitle is-6">400 gram</p>
+								
+								<span class="price">€5.95</span>
+							</div>
+							<a href="./product-detail.html" class="card-link"></a>
+						</div>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-others f-color-grey">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/roomhoornpen.jpeg" alt="Afbeelding Roomhoornpen" />
+								</figure>
+							</div>
+							<div class="card-content">
+								<h1 class="title is-6">Roomhoornpen</h1>
+								<p class="subtitle is-6">Roestvrijstaal</p>
+								
+								<span class="price">€1.95</span>
+							</div>
+							<a href="./product-detail.html" class="card-link"></a>
+						</div>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-pans f-color-black">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/poffertjespan.jpeg" alt="Afbeelding Poffertjespan gietijzer" />
+								</figure>
+							</div>
+							<div class="card-content">
+								<h1 class="title is-6">Poffertjespan gietijzer</h1>
+								<p class="subtitle is-6">24 cm</p>
+								
+								<span class="price">€39.95</span>
+							</div>
+							<a href="./product-detail.html" class="card-link"></a>
+						</div>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-cutlery f-color-brown">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/vleeshamer.jpeg" alt="Afbeelding Vleeshamer" />
+								</figure>
+							</div>
+							<div class="card-content">
+								<h1 class="title is-6">Vleeshamer</h1>
+								<p class="subtitle is-6">Beukenhout met aluminum</p>
+								
+								<span class="price">€5.50</span>
+							</div>
+							<a href="./product-detail.html" class="card-link"></a>
+						</div>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-cutlery f-color-brown">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/bakkwastje.jpeg" alt="Afbeelding Bakkwastje rond" />
+								</figure>
+							</div>
+							<div class="card-content">
+								<h1 class="title is-6">Bakkwastje rond</h1>
+								<p class="subtitle is-6">Beukenhout</p>
+								
+								<span class="price">€2.95</span>
+							</div>
+							<a href="./product-detail.html" class="card-link"></a>
+						</div>
+					</div>
+					<div class="column is-half-mobile is-one-third-tablet f-cutlery f-color-grey">
+						 <div class="card ">
+							<div class="card-image">
+								<figure class="image is-square ">
+									<img  src="./../assets/toolkit/images/barbecuepen.jpeg" alt="Afbeelding Bakkwastje rond" />
+								</figure>
+							</div>
+							<div class="card-content">
+								<h1 class="title is-6">Barbecuepen</h1>
+								<p class="subtitle is-6">Roestvrij staal , 35.5cm</p>
+								
+								<span class="price">€0.95</span>
+							</div>
+							<a href="./product-detail.html" class="card-link"></a>
+						</div>
+					</div>
 			</div>
 			<button class="button is-dark show-more-btn">Toon meer (12/16)</button>
 			<div class="columns is-mobile hidden-cards-container is-hidden">
-						<div class="column is-half-mobile is-one-third-tablet">
+						<div class="column is-half-mobile is-one-third-tablet f-others f-color-brown">
 							 <div class="card ">
 								<div class="card-image">
 									<figure class="image is-square ">
@@ -663,12 +663,12 @@
 									<h1 class="title is-6">Stoommandje bamboe</h1>
 									<p class="subtitle is-6">25cm</p>
 									
-									<span class="price">€13,95</span>
+									<span class="price">€13.95</span>
 								</div>
 								<a href="./product-detail.html" class="card-link"></a>
 							</div>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
+						<div class="column is-half-mobile is-one-third-tablet f-pans f-color-orange">
 							 <div class="card ">
 								<div class="card-image">
 									<figure class="image is-square ">
@@ -679,12 +679,12 @@
 									<h1 class="title is-6">Fonduepan/caquelon</h1>
 									<p class="subtitle is-6">Groot, rood aardewerk</p>
 									
-									<span class="price">€9,95</span>
+									<span class="price">€9.95</span>
 								</div>
 								<a href="./product-detail.html" class="card-link"></a>
 							</div>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
+						<div class="column is-half-mobile is-one-third-tablet f-others f-color-grey">
 							 <div class="card ">
 								<div class="card-image">
 									<figure class="image is-square ">
@@ -695,12 +695,12 @@
 									<h1 class="title is-6">Spatdeksel</h1>
 									<p class="subtitle is-6">30cm</p>
 									
-									<span class="price">€4,95</span>
+									<span class="price">€4.95</span>
 								</div>
 								<a href="./product-detail.html" class="card-link"></a>
 							</div>
 						</div>
-						<div class="column is-half-mobile is-one-third-tablet">
+						<div class="column is-half-mobile is-one-third-tablet f-others f-color-other">
 							 <div class="card ">
 								<div class="card-image">
 									<figure class="image is-square ">
@@ -711,7 +711,7 @@
 									<h1 class="title is-6">Keukentouw</h1>
 									<p class="subtitle is-6">Zwart/wit</p>
 									
-									<span class="price">€4,95</span>
+									<span class="price">€4.95</span>
 								</div>
 								<a href="./product-detail.html" class="card-link"></a>
 							</div>
